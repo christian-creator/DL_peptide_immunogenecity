@@ -1,0 +1,4 @@
+# Notes
+- Peptides with weird immunogenecity scores:
+	FIPENQRTV
+	NYTPGPGIRF
