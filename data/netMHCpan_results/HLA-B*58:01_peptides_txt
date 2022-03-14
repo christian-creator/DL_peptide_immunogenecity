@@ -1,0 +1,114 @@
+# /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/bin/netMHCpan -p -f /home/projects/vaccine/people/chrjac/DL_project/peptides_file/HLA-B*58:01_peptides_txt -a HLA-B58:01
+# Mon Mar 14 15:30:29 2022
+# User: chrjac
+# PWD : /home/projects/vaccine/people/chrjac/DL_project
+# Host: Linux g-12-l0002 3.10.0-1062.4.1.el7.x86_64 x86_64
+# -p       1                    Use peptide input
+# -f       /home/projects/vaccine/people/chrjac/DL_project/peptides_file/HLA-B*58:01_peptides_txt File name with input
+# -a       HLA-B58:01           HLA allele
+# Command line parameters set to:
+#	[-rdir filename]     /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64 Home directory for NetMHpan
+#	[-syn filename]      /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/synlist.bin Synaps file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /tmp/netMHCpanXXXXXX Temporary directory (made with mkdtemp)
+#	[-hlapseudo filename] /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/MHC_pseudo.dat File with HLA pseudo sequences
+#	[-hlaseq filename]                        File with full length HLA sequences
+#	[-a line]            HLA-B58:01           HLA allele
+#	[-f filename]        /home/projects/vaccine/people/chrjac/DL_project/peptides_file/HLA-B*58:01_peptides_txt File name with input
+#	[-w]                 0                    w option for webface
+#	[-s]                 0                    Sort output on descending affinity
+#	[-p]                 1                    Use peptide input
+#	[-rth float]         0.500000             Rank Threshold for high binding peptides
+#	[-rlt float]         2.000000             Rank Threshold for low binding peptides
+#	[-l string]          8,9,10,11            Peptide length [8-11] (multiple length with ,)
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetMHCpan_out.xls    Filename for xls dump
+#	[-t float]           -99.900002           Threshold for output
+#	[-thrfmt filename]   /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/threshold/%s.thr.%s Format for threshold filenames
+#	[-expfix]            0                    Exclude prefix from synlist
+#	[-version filename]  /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listMHC]           0                    Print list of alleles included in netMHCpan
+#	[-allname filename]  /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/allelenames File with print names for alleles
+#	[-BA]                0                    Include Binding affinity prediction
+
+# NetMHCpan version 4.1b
+
+# Tmpdir made /tmp/netMHCpanmmWJTS
+# Input is in PEPTIDE format
+
+# Make EL predictions
+
+HLA-B58:01 : Distance to training data  0.000 (using nearest neighbor HLA-B58:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+------------------------------------------------------------------------------------------------------------
+ Pos         HLA        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL  Rnk_EL BindLevel
+------------------------------------------------------------------------------------------------------------
+   1 HLA-B*58:01      ICSAVPVHW ICSAVPVHW  0  0  0  0  0    ICSAVPVHW         PEPLIST 0.9896700   0.007 <= SB
+   1 HLA-B*58:01      KAYAQMWSL KAYAQMWSL  0  0  0  0  0    KAYAQMWSL         PEPLIST 0.6284190   0.347 <= SB
+   1 HLA-B*58:01      RAWNSGYEW RAWNSGYEW  0  0  0  0  0    RAWNSGYEW         PEPLIST 0.9933970   0.004 <= SB
+   1 HLA-B*58:01      RSLFGGMSW RSLFGGMSW  0  0  0  0  0    RSLFGGMSW         PEPLIST 0.9905200   0.006 <= SB
+   1 HLA-B*58:01      RVLEMVEDW RVLEMVEDW  0  0  0  0  0    RVLEMVEDW         PEPLIST 0.9384090   0.061 <= SB
+   1 HLA-B*58:01      VSFIEFVGW VSFIEFVGW  0  0  0  0  0    VSFIEFVGW         PEPLIST 0.9637600   0.036 <= SB
+   1 HLA-B*58:01      WSIHAHHQW WSIHAHHQW  0  0  0  0  0    WSIHAHHQW         PEPLIST 0.9921490   0.005 <= SB
+   1 HLA-B*58:01     ASSMVNGVVK ASMVNGVVK  0  1  1  0  0   ASSMVNGVVK         PEPLIST 0.0030900  10.866
+   1 HLA-B*58:01     AAVLLLVTHY AALLLVTHY  0  2  1  0  0   AAVLLLVTHY         PEPLIST 0.0410470   3.143
+   1 HLA-B*58:01     ASSVLLWMAS ASSVLLWMS  0  8  1  0  0   ASSVLLWMAS         PEPLIST 0.0006590  22.095
+   1 HLA-B*58:01      ATGPILTLW ATGPILTLW  0  0  0  0  0    ATGPILTLW         PEPLIST 0.9967360   0.002 <= SB
+   1 HLA-B*58:01      ATGPISTLW ATGPISTLW  0  0  0  0  0    ATGPISTLW         PEPLIST 0.9974990   0.002 <= SB
+   1 HLA-B*58:01      ATGPITTLW ATGPITTLW  0  0  0  0  0    ATGPITTLW         PEPLIST 0.9976800   0.002 <= SB
+   1 HLA-B*58:01      ATGPLTTLW ATGPLTTLW  0  0  0  0  0    ATGPLTTLW         PEPLIST 0.9968530   0.002 <= SB
+   1 HLA-B*58:01      ATGPVLTLW ATGPVLTLW  0  0  0  0  0    ATGPVLTLW         PEPLIST 0.9966650   0.002 <= SB
+   1 HLA-B*58:01     EAVEDSRFWE EAVEDSRFW  0  0  0  0  0    EAVEDSRFW         PEPLIST 0.0137730   5.346
+   1 HLA-B*58:01     ESSSNPTIEE ESSSPTIEE  0  4  1  0  0   ESSSNPTIEE         PEPLIST 0.0005620  23.690
+   1 HLA-B*58:01     FASGRKSITL FASGKSITL  0  4  1  0  0   FASGRKSITL         PEPLIST 0.0106860   5.994
+   1 HLA-B*58:01     GASKRSWPLN GASKRSWLN  0  7  1  0  0   GASKRSWPLN         PEPLIST 0.0004220  26.775
+   1 HLA-B*58:01     GSSKIRWIVE GSSKIRWVE  0  7  1  0  0   GSSKIRWIVE         PEPLIST 0.0012810  16.415
+   1 HLA-B*58:01      IAVSMANIF IAVSMANIF  0  0  0  0  0    IAVSMANIF         PEPLIST 0.2989660   0.880 <= WB
+   1 HLA-B*58:01      IAVSTANIF IAVSTANIF  0  0  0  0  0    IAVSTANIF         PEPLIST 0.3720240   0.714 <= WB
+   1 HLA-B*58:01      IGIGILLTW IGIGILLTW  0  0  0  0  0    IGIGILLTW         PEPLIST 0.9341130   0.064 <= SB
+   1 HLA-B*58:01      IGIGVLLTW IGIGVLLTW  0  0  0  0  0    IGIGVLLTW         PEPLIST 0.9445370   0.055 <= SB
+   1 HLA-B*58:01      IGLTSRATW IGLTSRATW  0  0  0  0  0    IGLTSRATW         PEPLIST 0.8275300   0.152 <= SB
+   1 HLA-B*58:01     KATREAQKRA KATEAQKRA  0  3  1  0  0   KATREAQKRA         PEPLIST 0.0015530  15.000
+   1 HLA-B*58:01     KAVHADMGYW KAVHADMYW  0  7  1  0  0   KAVHADMGYW         PEPLIST 0.9297870   0.067 <= SB
+   1 HLA-B*58:01     KGSRAIWYMW KGSRAIWYW  0  8  1  0  0   KGSRAIWYMW         PEPLIST 0.5936400   0.387 <= SB
+   1 HLA-B*58:01      KSYAQMWQL KSYAQMWQL  0  0  0  0  0    KSYAQMWQL         PEPLIST 0.8339690   0.146 <= SB
+   1 HLA-B*58:01      LTAAVLLLI LTAAVLLLI  0  0  0  0  0    LTAAVLLLI         PEPLIST 0.2606130   0.992 <= WB
+   1 HLA-B*58:01     MASSALLWMA MSSALLWMA  0  1  1  0  0   MASSALLWMA         PEPLIST 0.0032760  10.592
+   1 HLA-B*58:01      MEITAEWLW MEITAEWLW  0  0  0  0  0    MEITAEWLW         PEPLIST 0.4498720   0.582 <= WB
+   1 HLA-B*58:01     PASAWTLYAV ASAWTLYAV  1  0  0  0  0    ASAWTLYAV         PEPLIST 0.0001520  40.200
+   1 HLA-B*58:01     PASIAARGYI ASIAARGYI  1  0  0  0  0    ASIAARGYI         PEPLIST 0.0001760  38.083
+   1 HLA-B*58:01     PTSRTTWSIH PTSRTTWSH  0  8  1  0  0   PTSRTTWSIH         PEPLIST 0.0004140  26.975
+   1 HLA-B*58:01     QSGVDVFFTP QSVDVFFTP  0  2  1  0  0   QSGVDVFFTP         PEPLIST 0.0045640   9.003
+   1 HLA-B*58:01      RAAVEDEEF RAAVEDEEF  0  0  0  0  0    RAAVEDEEF         PEPLIST 0.3887530   0.683 <= WB
+   1 HLA-B*58:01     RASFIEVKTC RSFIEVKTC  0  1  1  0  0   RASFIEVKTC         PEPLIST 0.0385210   3.257
+   1 HLA-B*58:01     RAVHADMGYW RAVHADMYW  0  7  1  0  0   RAVHADMGYW         PEPLIST 0.9181090   0.079 <= SB
+   1 HLA-B*58:01      RSWNSGHEW RSWNSGHEW  0  0  0  0  0    RSWNSGHEW         PEPLIST 0.9972720   0.002 <= SB
+   1 HLA-B*58:01      RVLKMVEPW RVLKMVEPW  0  0  0  0  0    RVLKMVEPW         PEPLIST 0.8955120   0.097 <= SB
+   1 HLA-B*58:01     TAAVLLLITH TAAVLLLTH  0  7  1  0  0   TAAVLLLITH         PEPLIST 0.0022610  12.582
+   1 HLA-B*58:01      TTFSLHYAW TTFSLHYAW  0  0  0  0  0    TTFSLHYAW         PEPLIST 0.9867900   0.009 <= SB
+   1 HLA-B*58:01     VASGLLWVAE VASGLLWVE  0  8  1  0  0   VASGLLWVAE         PEPLIST 0.0011480  17.255
+   1 HLA-B*58:01     VSSVNMVSRL VSSNMVSRL  0  3  1  0  0   VSSVNMVSRL         PEPLIST 0.0176090   4.759
+   1 HLA-B*58:01      WVAEIQPQW WVAEIQPQW  0  0  0  0  0    WVAEIQPQW         PEPLIST 0.9667610   0.033 <= SB
+   1 HLA-B*58:01      ILIGVIITW ILIGVIITW  0  0  0  0  0    ILIGVIITW         PEPLIST 0.7964640   0.177 <= SB
+   1 HLA-B*58:01     MTTEDMLSVW MTTEDMLSW  0  8  1  0  0   MTTEDMLSVW         PEPLIST 0.9423560   0.057 <= SB
+   1 HLA-B*58:01     MTTEDMLTVW MTTEDMLTW  0  8  1  0  0   MTTEDMLTVW         PEPLIST 0.9643050   0.035 <= SB
+   1 HLA-B*58:01      SVIWMMWYW SVIWMMWYW  0  0  0  0  0    SVIWMMWYW         PEPLIST 0.3624610   0.735 <= WB
+   1 HLA-B*58:01      TAGSLQGQW TAGSLQGQW  0  0  0  0  0    TAGSLQGQW         PEPLIST 0.8731670   0.114 <= SB
+   1 HLA-B*58:01     VSTAPTGSWF VSAPTGSWF  0  2  1  0  0   VSTAPTGSWF         PEPLIST 0.3406650   0.781 <= WB
+   1 HLA-B*58:01      KSHGKGYNW KSHGKGYNW  0  0  0  0  0    KSHGKGYNW         PEPLIST 0.9799190   0.018 <= SB
+   1 HLA-B*58:01     YKSHGKGYNW YSHGKGYNW  0  1  1  0  0   YKSHGKGYNW         PEPLIST 0.7677500   0.203 <= SB
+   1 HLA-B*58:01     MTTEDMLEVW MTTEDMLEW  0  8  1  0  0   MTTEDMLEVW         PEPLIST 0.9433680   0.056 <= SB
+   1 HLA-B*58:01     MTTEDMLQVW MTTEDMLQW  0  8  1  0  0   MTTEDMLQVW         PEPLIST 0.9692650   0.031 <= SB
+   1 HLA-B*58:01      KSRGKGYNW KSRGKGYNW  0  0  0  0  0    KSRGKGYNW         PEPLIST 0.9197990   0.078 <= SB
+   1 HLA-B*58:01      ATLNICNFW ATLNICNFW  0  0  0  0  0    ATLNICNFW         PEPLIST 0.8685770   0.118 <= SB
+   1 HLA-B*58:01      LSIFDTSLF LSIFDTSLF  0  0  0  0  0    LSIFDTSLF         PEPLIST 0.6927570   0.279 <= SB
+   1 HLA-B*58:01      NAAEPEQPW NAAEPEQPW  0  0  0  0  0    NAAEPEQPW         PEPLIST 0.6491020   0.324 <= SB
+------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*58:01. Number of high binders 35. Number of weak binders 7. Number of peptides 60
+
+-----------------------------------------------------------------------------------
