@@ -29,6 +29,9 @@ def encode_peptide_onehot(peptide):
     amino_acids = ['A', 'R', 'N', 'D', 'C', 'Q', 'E', 'G', 'H', 'I', 'L', 'K', 'M', 'F','P', 'S', 'T', 'W', 'Y', 'V']
     ...
 
+def encode_seq_vec(peptide):
+    ...
+
 # TODO: Encode using SeqVec: https://github.com/Rostlab/SeqVec
 if __name__ == "__main__":
     os.system("ls ../")
