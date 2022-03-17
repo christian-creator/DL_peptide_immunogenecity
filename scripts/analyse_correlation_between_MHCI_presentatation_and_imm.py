@@ -40,7 +40,7 @@ def read_netMHCpan_results(path_to_results_files):
 data = pd.read_csv("../data/filtered_data_IEDB_4_tested_len_9_10_full_HLA.csv")
 
 # Reading the binding results from netMHCpan output
-path_to_netMHCpan_results = "../tmp/netMHCpan_results"
+path_to_netMHCpan_results = "../data/netMHCpan_results"
 binding_results = read_netMHCpan_results(path_to_netMHCpan_results)
 
 # Making a binary classication feature based on a threshold 0.5 and the continous immunogenecity scores. 
@@ -76,3 +76,4 @@ plt.xlabel('False Positive Rate')
 plt.show()
 
 print("## THUS WE GET AN AUC OF 0.6 WHEN ONLY USING THE BINDING SCORE TO PREDICT IMMUNOGENICITY")
+# %%
