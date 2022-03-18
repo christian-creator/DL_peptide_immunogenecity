@@ -1,0 +1,31 @@
+#! /bin/tcsh -f
+
+if ( ! -e common_motif.out ) then
+
+cat alldat.txt | gawk 'length($1)>=9' | args 1 | sort -u | makefsa | fastasort -- | xC | grep -v ">" | common_motif -l 9 -- | xC > common_motif.out
+
+endif
+
+cat common_motif.out | grep ^Acc | args 2 > Accepted
+
+splitfile -cpfix a Accepted > /dev/null
+
+rm -f f00?
+
+foreach n ( 0 1 2 3 4 ) 
+
+cat common_motif.out | grep ^Seq | args 4,2 > $$.xx
+
+pepgrep a00$n $$.xx | args 2,1 > a00$n.add
+
+cat a00$n a00$n.add | args 1,2 > a00$n.all
+
+end
+
+foreach n ( 0 1 2 3 4 )
+
+pepgrep a00$n.all alldat.txt > c00$n
+
+end
+
+rm -f $$.*

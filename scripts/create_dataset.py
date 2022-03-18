@@ -33,7 +33,8 @@ experiment_raw_df.sort_values(by='Epitope ID', ascending=True)
 
 # Experiments used 
 # most_common_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
-used_experiments = ['IFNg release']
+# used_experiments = ['IFNg release']
+used_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
 
 filter_lengths = [9,10]
 epitope_raw_df["epitope_length"] = epitope_raw_df["Description"].apply(lambda x: len(x.strip()))
@@ -67,8 +68,6 @@ for ID in epitope_IDS:
             if unique_identifier not in final_dataset.keys():
                 final_dataset[unique_identifier] = dict()
 
-            
-            
             if assay not in final_dataset[unique_identifier].keys():
                 final_dataset[unique_identifier]["tested subjects"] = [tested_subjects]
                 final_dataset[unique_identifier]["positive subjects"] = [positive_subjects]
@@ -92,6 +91,8 @@ columns = ["peptide","HLA_allele","immunogenicity","tested_subjects","positive_s
 dataset_df = pd.DataFrame.from_records(dataset,columns=columns)
 alleles = ["*" in x for x in dataset_df["HLA_allele"]]
 dataset_df = dataset_df[alleles]
+
+
 positive_df = dataset_df[dataset_df["positive_subjects"] > 0]
 negative_df = dataset_df[dataset_df["positive_subjects"] == 0]
 negative_df = negative_df[negative_df["tested_subjects"] > 4]
@@ -101,7 +102,9 @@ total_df = pd.concat([positive_df, negative_df])
 positive_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/positive_df_tmp.csv")
 negative_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/negative_df_tmp.csv")
 
+total_df["Response"] = ['Positive' if x > 0 else 'Negative' for x in total_df["positive_subjects"]]
 total_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/filtered_data_IEDB_4_tested_len_9_10_full_HLA.csv")
+
 
 # print(positive_df)
 # print(negative_df)
