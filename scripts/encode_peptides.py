@@ -21,7 +21,6 @@ def encode_peptide_AAindex(peptide):
         else:
             encoded_peptide.append(list(PCA_repr.loc[aa]))
     return np.array(encoded_peptide)
-    ...
 
 
 # TODO: Use other encoding schemes like sparse onehot encoding or BLOSSUM
