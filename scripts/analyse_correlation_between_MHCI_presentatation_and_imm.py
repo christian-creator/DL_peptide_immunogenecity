@@ -1,5 +1,5 @@
 # %% 
-import pandas as pd
+import pandas as pd # halleluja jeg er stresset :)
 import numpy as np
 import os
 import seaborn as sns
