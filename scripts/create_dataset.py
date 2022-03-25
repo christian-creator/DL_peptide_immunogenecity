@@ -103,7 +103,7 @@ positive_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptid
 negative_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/negative_df_tmp.csv")
 
 total_df["Response"] = ['Positive' if x > 0 else 'Negative' for x in total_df["positive_subjects"]]
-total_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/filtered_data_IEDB_4_tested_len_9_10_full_HLA.csv")
+total_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/filtered_data_IEDB_4_tested_len_9_10_full_HLA_Multi_assay.csv")
 
 
 # print(positive_df)
