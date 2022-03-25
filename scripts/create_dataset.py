@@ -21,20 +21,20 @@ def calculate_immunogenecity_score(tested_subjects,positive_subjects):
 
 ## Read epitope data
 # path_to_epitope_file = "/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/eptope_data_MHCII.csv"
-path_to_epitope_file = "/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/MHCI/epitope_data_MHCI.csv"
+path_to_epitope_file = "../../too_big_data/MHCI/epitope_data_MHCI.csv"
 epitope_raw_df = pd.read_csv(path_to_epitope_file,skiprows=1)
 epitope_raw_df = epitope_raw_df[['Epitope ID',"Description","Antigen Name"]]
 ## Read experiment data
 # path_to_experiment_file = "/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/experiment_data_MHCII.csv"
-path_to_experiment_file = "/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/MHCI/experiment_data_MHCI.csv"
+path_to_experiment_file = "../../too_big_data/MHCI/experiment_data_MHCI.csv"
 experiment_raw_df = pd.read_csv(path_to_experiment_file,skiprows=1)
 experiment_raw_df = experiment_raw_df[['Epitope ID',"Cell Type","Allele Name","Antigen Description","Qualitative Measure","Assay Group","Number of Subjects Tested","Number of Subjects Responded"]].dropna()
 experiment_raw_df.sort_values(by='Epitope ID', ascending=True)
 
 # Experiments used 
 # most_common_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
-# used_experiments = ['IFNg release']
-used_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
+used_experiments = ['IFNg release']
+#used_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
 
 filter_lengths = [9,10]
 epitope_raw_df["epitope_length"] = epitope_raw_df["Description"].apply(lambda x: len(x.strip()))
@@ -99,11 +99,11 @@ negative_df = negative_df[negative_df["tested_subjects"] > 4]
 total_df = pd.concat([positive_df, negative_df])
 
 
-positive_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/positive_df_tmp.csv")
-negative_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/negative_df_tmp.csv")
+#positive_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/positive_df_tmp.csv")
+#negative_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/negative_df_tmp.csv")
 
 total_df["Response"] = ['Positive' if x > 0 else 'Negative' for x in total_df["positive_subjects"]]
-total_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/filtered_data_IEDB_4_tested_len_9_10_full_HLA_Multi_assay.csv")
+total_df.to_csv("../data/filtered_data_IEDB_4_tested_len_9_10_full_HLA_IFNg_assay.csv")
 
 
 # print(positive_df)
