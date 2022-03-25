@@ -11,6 +11,7 @@ from scipy.stats import betabinom
 import copy
 import itertools
 
+
 def calculate_immunogenecity_score(tested_subjects,positive_subjects):
     N = tested_subjects
     m = positive_subjects
@@ -33,8 +34,8 @@ experiment_raw_df.sort_values(by='Epitope ID', ascending=True)
 
 # Experiments used 
 # most_common_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
-used_experiments = ['IFNg release']
-#used_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
+#used_experiments = ['IFNg release']
+used_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
 
 filter_lengths = [9,10]
 epitope_raw_df["epitope_length"] = epitope_raw_df["Description"].apply(lambda x: len(x.strip()))
@@ -103,8 +104,25 @@ total_df = pd.concat([positive_df, negative_df])
 #negative_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/negative_df_tmp.csv")
 
 total_df["Response"] = ['Positive' if x > 0 else 'Negative' for x in total_df["positive_subjects"]]
-total_df.to_csv("../data/filtered_data_IEDB_4_tested_len_9_10_full_HLA_IFNg_assay.csv")
 
+def hla_df_to_dic(hla):
+    dic = {}
+    for i in range(hla.shape[0]):
+        col1 = hla['HLA'].iloc[i]  # HLA allele
+        col2 = hla['pseudo'].iloc[i]  # pseudo sequence
+        dic[col1] = col2
+    return dic
+
+hla = pd.read_csv('../data/formatted_MHC_pseudo.dat', sep=" ")
+hla_dic = hla_df_to_dic(hla)
+
+removed_idx = total_df[total_df.apply(lambda x: False if (x.HLA_allele) in hla_dic.keys() else True,axis=1)].index
+print("These rows were removed due to HLA missing from the MHC_psuedo.dat: {}".format(removed_idx))
+total_df = total_df[total_df.apply(lambda x: True if (x.HLA_allele) in hla_dic.keys() else False,axis=1)]
+total_df.to_csv("../data/filtered_data_IEDB_4_tested_len_9_10_full_HLA_Multi_assay.csv")
+
+
+#total_df.to_csv("../data/filtered_data_IEDB_4_tested_len_9_10_full_HLA_IFNg_assay.csv")
 
 # print(positive_df)
 # print(negative_df)
