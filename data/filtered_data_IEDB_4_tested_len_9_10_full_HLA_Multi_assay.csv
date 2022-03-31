@@ -1,4 +1,4 @@
-,peptide,HLA,potential,test,respond,immunogenicity
+,peptide,HLA_allele,immunogenicity,tested_subjects,positive_subjects,Response
 6,AAGIGILTV,HLA-A*02:01,0.8333333333333334,4.0,4.0,Positive
 8,AAISDYDYY,HLA-A*01:01,0.2857142857142857,5.0,1.0,Positive
 9,AALFFFDID,HLA-A*02:01,0.25,10.0,2.0,Positive

@@ -22,12 +22,12 @@ def calculate_immunogenecity_score(tested_subjects,positive_subjects):
 
 ## Read epitope data
 # path_to_epitope_file = "/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/eptope_data_MHCII.csv"
-path_to_epitope_file = "../../too_big_data/MHCI/epitope_data_MHCI.csv"
+path_to_epitope_file = "../data/MHCI/epitope_data_MHCI.csv"
 epitope_raw_df = pd.read_csv(path_to_epitope_file,skiprows=1)
 epitope_raw_df = epitope_raw_df[['Epitope ID',"Description","Antigen Name"]]
 ## Read experiment data
 # path_to_experiment_file = "/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/experiment_data_MHCII.csv"
-path_to_experiment_file = "../../too_big_data/MHCI/experiment_data_MHCI.csv"
+path_to_experiment_file = "../data/MHCI/experiment_data_MHCI.csv"
 experiment_raw_df = pd.read_csv(path_to_experiment_file,skiprows=1)
 experiment_raw_df = experiment_raw_df[['Epitope ID',"Cell Type","Allele Name","Antigen Description","Qualitative Measure","Assay Group","Number of Subjects Tested","Number of Subjects Responded"]].dropna()
 experiment_raw_df.sort_values(by='Epitope ID', ascending=True)
