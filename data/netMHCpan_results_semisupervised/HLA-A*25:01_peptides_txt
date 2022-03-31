@@ -1,0 +1,89 @@
+# /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/bin/netMHCpan -p -f peptides_file_supervised/HLA-A*25:01_peptides_txt -a HLA-A25:01
+# Thu Mar 31 14:09:46 2022
+# User: chrjac
+# PWD : /home/projects/vaccine/people/chrjac/DL_project
+# Host: Linux g-04-c0294 3.10.0-1062.4.1.el7.x86_64 x86_64
+# -p       1                    Use peptide input
+# -f       peptides_file_supervised/HLA-A*25:01_peptides_txt File name with input
+# -a       HLA-A25:01           HLA allele
+# Command line parameters set to:
+#	[-rdir filename]     /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64 Home directory for NetMHpan
+#	[-syn filename]      /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/synlist.bin Synaps file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /scratch/35325816/netMHCpanXXXXXX Temporary directory (made with mkdtemp)
+#	[-hlapseudo filename] /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/MHC_pseudo.dat File with HLA pseudo sequences
+#	[-hlaseq filename]                        File with full length HLA sequences
+#	[-a line]            HLA-A25:01           HLA allele
+#	[-f filename]        peptides_file_supervised/HLA-A*25:01_peptides_txt File name with input
+#	[-w]                 0                    w option for webface
+#	[-s]                 0                    Sort output on descending affinity
+#	[-p]                 1                    Use peptide input
+#	[-rth float]         0.500000             Rank Threshold for high binding peptides
+#	[-rlt float]         2.000000             Rank Threshold for low binding peptides
+#	[-l string]          8,9,10,11            Peptide length [8-11] (multiple length with ,)
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetMHCpan_out.xls    Filename for xls dump
+#	[-t float]           -99.900002           Threshold for output
+#	[-thrfmt filename]   /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/threshold/%s.thr.%s Format for threshold filenames
+#	[-expfix]            0                    Exclude prefix from synlist
+#	[-version filename]  /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listMHC]           0                    Print list of alleles included in netMHCpan
+#	[-allname filename]  /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/allelenames File with print names for alleles
+#	[-BA]                0                    Include Binding affinity prediction
+
+# NetMHCpan version 4.1b
+
+# Tmpdir made /scratch/35325816/netMHCpanoWJJp8
+# Input is in PEPTIDE format
+
+# Make EL predictions
+
+HLA-A25:01 : Distance to training data  0.000 (using nearest neighbor HLA-A25:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+------------------------------------------------------------------------------------------------------------
+ Pos         HLA        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL  Rnk_EL BindLevel
+------------------------------------------------------------------------------------------------------------
+   1 HLA-A*25:01      DIVKGLSGY DIVKGLSGY  0  0  0  0  0    DIVKGLSGY         PEPLIST 0.9033560   0.007 <= SB
+   1 HLA-A*25:01      DTRGIFSAY DTRGIFSAY  0  0  0  0  0    DTRGIFSAY         PEPLIST 0.9486710   0.004 <= SB
+   1 HLA-A*25:01      DTTTDISKY DTTTDISKY  0  0  0  0  0    DTTTDISKY         PEPLIST 0.8207660   0.017 <= SB
+   1 HLA-A*25:01      EIIPKIKAY EIIPKIKAY  0  0  0  0  0    EIIPKIKAY         PEPLIST 0.9830990   0.001 <= SB
+   1 HLA-A*25:01      EIPQFMIGL EIPQFMIGL  0  0  0  0  0    EIPQFMIGL         PEPLIST 0.4527300   0.165 <= SB
+   1 HLA-A*25:01      ESAERLKAY ESAERLKAY  0  0  0  0  0    ESAERLKAY         PEPLIST 0.8722880   0.010 <= SB
+   1 HLA-A*25:01      ETACLGKSY ETACLGKSY  0  0  0  0  0    ETACLGKSY         PEPLIST 0.7340930   0.036 <= SB
+   1 HLA-A*25:01      EVFEIIRSY EVFEIIRSY  0  0  0  0  0    EVFEIIRSY         PEPLIST 0.9943700   0.000 <= SB
+   1 HLA-A*25:01      EVVDMLSTY EVVDMLSTY  0  0  0  0  0    EVVDMLSTY         PEPLIST 0.9954070   0.000 <= SB
+   1 HLA-A*25:01      FIIDNFGSV FIIDNFGSV  0  0  0  0  0    FIIDNFGSV         PEPLIST 0.2828440   0.390 <= SB
+   1 HLA-A*25:01      FVIGGMTGV FVIGGMTGV  0  0  0  0  0    FVIGGMTGV         PEPLIST 0.3269560   0.312 <= SB
+   1 HLA-A*25:01      MTRGLLGSY MTRGLLGSY  0  0  0  0  0    MTRGLLGSY         PEPLIST 0.7583970   0.032 <= SB
+   1 HLA-A*25:01      QVIEYLKPY QVIEYLKPY  0  0  0  0  0    QVIEYLKPY         PEPLIST 0.8356830   0.015 <= SB
+   1 HLA-A*25:01      YLKKWLNSF YLKKWLNSF  0  0  0  0  0    YLKKWLNSF         PEPLIST 0.4191690   0.189 <= SB
+   1 HLA-A*25:01      YTPLNYSKF YTPLNYSKF  0  0  0  0  0    YTPLNYSKF         PEPLIST 0.5333690   0.119 <= SB
+   1 HLA-A*25:01      YVRGYLRGY YVRGYLRGY  0  0  0  0  0    YVRGYLRGY         PEPLIST 0.6161140   0.075 <= SB
+   1 HLA-A*25:01      YVYFYDLSY YVYFYDLSY  0  0  0  0  0    YVYFYDLSY         PEPLIST 0.5273680   0.121 <= SB
+   1 HLA-A*25:01      DIAEHGAYY DIAEHGAYY  0  0  0  0  0    DIAEHGAYY         PEPLIST 0.8951190   0.008 <= SB
+   1 HLA-A*25:01      DIVGGLFTY DIVGGLFTY  0  0  0  0  0    DIVGGLFTY         PEPLIST 0.9130650   0.007 <= SB
+   1 HLA-A*25:01      EIAQHGAWY EIAQHGAWY  0  0  0  0  0    EIAQHGAWY         PEPLIST 0.7901290   0.023 <= SB
+   1 HLA-A*25:01      EIPDVLNSL EIPDVLNSL  0  0  0  0  0    EIPDVLNSL         PEPLIST 0.8015420   0.020 <= SB
+   1 HLA-A*25:01      ETIEDYLGY ETIEDYLGY  0  0  0  0  0    ETIEDYLGY         PEPLIST 0.9664270   0.003 <= SB
+   1 HLA-A*25:01      ETIGLVRAL ETIGLVRAL  0  0  0  0  0    ETIGLVRAL         PEPLIST 0.9428690   0.004 <= SB
+   1 HLA-A*25:01      ETLDVFGPI ETLDVFGPI  0  0  0  0  0    ETLDVFGPI         PEPLIST 0.3086070   0.344 <= SB
+   1 HLA-A*25:01      EVNAHIHTM EVNAHIHTM  0  0  0  0  0    EVNAHIHTM         PEPLIST 0.9585750   0.003 <= SB
+   1 HLA-A*25:01      EVREFLGSY EVREFLGSY  0  0  0  0  0    EVREFLGSY         PEPLIST 0.9615900   0.003 <= SB
+   1 HLA-A*25:01      FPASHMATY FPASHMATY  0  0  0  0  0    FPASHMATY         PEPLIST 0.8063310   0.019 <= SB
+   1 HLA-A*25:01      FTNKLINGY FTNKLINGY  0  0  0  0  0    FTNKLINGY         PEPLIST 0.7599800   0.031 <= SB
+   1 HLA-A*25:01      HTAAPWGSY HTAAPWGSY  0  0  0  0  0    HTAAPWGSY         PEPLIST 0.8746200   0.010 <= SB
+   1 HLA-A*25:01      MTFPVSLEY MTFPVSLEY  0  0  0  0  0    MTFPVSLEY         PEPLIST 0.9209640   0.006 <= SB
+   1 HLA-A*25:01      NTIEELSGY NTIEELSGY  0  0  0  0  0    NTIEELSGY         PEPLIST 0.9507030   0.004 <= SB
+   1 HLA-A*25:01      SVFEGIRAY SVFEGIRAY  0  0  0  0  0    SVFEGIRAY         PEPLIST 0.9670920   0.003 <= SB
+   1 HLA-A*25:01      TTADHMHML TTADHMHML  0  0  0  0  0    TTADHMHML         PEPLIST 0.7249200   0.038 <= SB
+   1 HLA-A*25:01      TVAHQVCPY TVAHQVCPY  0  0  0  0  0    TVAHQVCPY         PEPLIST 0.4820610   0.145 <= SB
+   1 HLA-A*25:01      YTVRGTGKY YTVRGTGKY  0  0  0  0  0    YTVRGTGKY         PEPLIST 0.7943300   0.022 <= SB
+------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*25:01. Number of high binders 35. Number of weak binders 0. Number of peptides 35
+
+-----------------------------------------------------------------------------------

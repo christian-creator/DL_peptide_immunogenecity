@@ -1,0 +1,227 @@
+# /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/bin/netMHCpan -p -f peptides_file_supervised/HLA-A*24:03_peptides_txt -a HLA-A24:03
+# Thu Mar 31 14:09:46 2022
+# User: chrjac
+# PWD : /home/projects/vaccine/people/chrjac/DL_project
+# Host: Linux g-04-c0294 3.10.0-1062.4.1.el7.x86_64 x86_64
+# -p       1                    Use peptide input
+# -f       peptides_file_supervised/HLA-A*24:03_peptides_txt File name with input
+# -a       HLA-A24:03           HLA allele
+# Command line parameters set to:
+#	[-rdir filename]     /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64 Home directory for NetMHpan
+#	[-syn filename]      /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/synlist.bin Synaps file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /scratch/35325816/netMHCpanXXXXXX Temporary directory (made with mkdtemp)
+#	[-hlapseudo filename] /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/MHC_pseudo.dat File with HLA pseudo sequences
+#	[-hlaseq filename]                        File with full length HLA sequences
+#	[-a line]            HLA-A24:03           HLA allele
+#	[-f filename]        peptides_file_supervised/HLA-A*24:03_peptides_txt File name with input
+#	[-w]                 0                    w option for webface
+#	[-s]                 0                    Sort output on descending affinity
+#	[-p]                 1                    Use peptide input
+#	[-rth float]         0.500000             Rank Threshold for high binding peptides
+#	[-rlt float]         2.000000             Rank Threshold for low binding peptides
+#	[-l string]          8,9,10,11            Peptide length [8-11] (multiple length with ,)
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetMHCpan_out.xls    Filename for xls dump
+#	[-t float]           -99.900002           Threshold for output
+#	[-thrfmt filename]   /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/threshold/%s.thr.%s Format for threshold filenames
+#	[-expfix]            0                    Exclude prefix from synlist
+#	[-version filename]  /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listMHC]           0                    Print list of alleles included in netMHCpan
+#	[-allname filename]  /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/allelenames File with print names for alleles
+#	[-BA]                0                    Include Binding affinity prediction
+
+# NetMHCpan version 4.1b
+
+# Tmpdir made /scratch/35325816/netMHCpanxT33VL
+# Input is in PEPTIDE format
+
+# Make EL predictions
+
+HLA-A24:03 : Distance to training data  0.000 (using nearest neighbor HLA-A24:03)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+------------------------------------------------------------------------------------------------------------
+ Pos         HLA        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL  Rnk_EL BindLevel
+------------------------------------------------------------------------------------------------------------
+   1 HLA-A*24:03      AFDIASVFF AFDIASVFF  0  0  0  0  0    AFDIASVFF         PEPLIST 0.7831780   0.248 <= SB
+   1 HLA-A*24:03      AFHGLDVKF AFHGLDVKF  0  0  0  0  0    AFHGLDVKF         PEPLIST 0.9132990   0.109 <= SB
+   1 HLA-A*24:03      AFHQLVQVI AFHQLVQVI  0  0  0  0  0    AFHQLVQVI         PEPLIST 0.6316940   0.416 <= SB
+   1 HLA-A*24:03      ATQPVHWFL ATQPVHWFL  0  0  0  0  0    ATQPVHWFL         PEPLIST 0.4431100   0.700 <= WB
+   1 HLA-A*24:03      AYGSRFHEW AYGSRFHEW  0  0  0  0  0    AYGSRFHEW         PEPLIST 0.9794650   0.028 <= SB
+   1 HLA-A*24:03      AYLLQHLDL AYLLQHLDL  0  0  0  0  0    AYLLQHLDL         PEPLIST 0.7823400   0.249 <= SB
+   1 HLA-A*24:03      AYQQGVKTL AYQQGVKTL  0  0  0  0  0    AYQQGVKTL         PEPLIST 0.9797980   0.028 <= SB
+   1 HLA-A*24:03      AYYWNQNGF AYYWNQNGF  0  0  0  0  0    AYYWNQNGF         PEPLIST 0.9853980   0.019 <= SB
+   1 HLA-A*24:03      CFMYSDFHF CFMYSDFHF  0  0  0  0  0    CFMYSDFHF         PEPLIST 0.7686540   0.263 <= SB
+   1 HLA-A*24:03      CIIGTVSKF CIIGTVSKF  0  0  0  0  0    CIIGTVSKF         PEPLIST 0.0822960   2.394
+   1 HLA-A*24:03      CYMHVSDFY CYMHVSDFY  0  0  0  0  0    CYMHVSDFY         PEPLIST 0.4600490   0.672 <= WB
+   1 HLA-A*24:03      CYMHVSDYY CYMHVSDYY  0  0  0  0  0    CYMHVSDYY         PEPLIST 0.5173580   0.579 <= WB
+   1 HLA-A*24:03      DYMPSMKRF DYMPSMKRF  0  0  0  0  0    DYMPSMKRF         PEPLIST 0.8600490   0.165 <= SB
+   1 HLA-A*24:03      EYKKFIATF EYKKFIATF  0  0  0  0  0    EYKKFIATF         PEPLIST 0.9257180   0.096 <= SB
+   1 HLA-A*24:03      EYVGKTVWF EYVGKTVWF  0  0  0  0  0    EYVGKTVWF         PEPLIST 0.7884600   0.243 <= SB
+   1 HLA-A*24:03      FVHSGFIYF FVHSGFIYF  0  0  0  0  0    FVHSGFIYF         PEPLIST 0.4488860   0.690 <= WB
+   1 HLA-A*24:03      FYADPKRYF FYADPKRYF  0  0  0  0  0    FYADPKRYF         PEPLIST 0.9876740   0.015 <= SB
+   1 HLA-A*24:03      FYKRKAMAW FYKRKAMAW  0  0  0  0  0    FYKRKAMAW         PEPLIST 0.7797060   0.252 <= SB
+   1 HLA-A*24:03      FYRNISDPL FYRNISDPL  0  0  0  0  0    FYRNISDPL         PEPLIST 0.5615340   0.513 <= WB
+   1 HLA-A*24:03      GFLNEDHWF GFLNEDHWF  0  0  0  0  0    GFLNEDHWF         PEPLIST 0.6328780   0.415 <= SB
+   1 HLA-A*24:03      GFMNEDHWF GFMNEDHWF  0  0  0  0  0    GFMNEDHWF         PEPLIST 0.7022160   0.333 <= SB
+   1 HLA-A*24:03      GFPSLESSF GFPSLESSF  0  0  0  0  0    GFPSLESSF         PEPLIST 0.8550000   0.171 <= SB
+   1 HLA-A*24:03      GWGNGCGLF GWGNGCGLF  0  0  0  0  0    GWGNGCGLF         PEPLIST 0.2965330   1.033 <= WB
+   1 HLA-A*24:03      GYAGTLQSL GYAGTLQSL  0  0  0  0  0    GYAGTLQSL         PEPLIST 0.9234480   0.098 <= SB
+   1 HLA-A*24:03      GYCLTRWML GYCLTRWML  0  0  0  0  0    GYCLTRWML         PEPLIST 0.5476550   0.534 <= WB
+   1 HLA-A*24:03      GYISTRVEL GYISTRVEL  0  0  0  0  0    GYISTRVEL         PEPLIST 0.8573860   0.168 <= SB
+   1 HLA-A*24:03      GYLEGTRTL GYLEGTRTL  0  0  0  0  0    GYLEGTRTL         PEPLIST 0.9729170   0.041 <= SB
+   1 HLA-A*24:03      GYLNACGHF GYLNACGHF  0  0  0  0  0    GYLNACGHF         PEPLIST 0.8589390   0.166 <= SB
+   1 HLA-A*24:03      HWCTSTCQF HWCTSTCQF  0  0  0  0  0    HWCTSTCQF         PEPLIST 0.6226870   0.429 <= SB
+   1 HLA-A*24:03      IFFFLFNIL IFFFLFNIL  0  0  0  0  0    IFFFLFNIL         PEPLIST 0.2413460   1.219 <= WB
+   1 HLA-A*24:03      IFLKPDETF IFLKPDETF  0  0  0  0  0    IFLKPDETF         PEPLIST 0.9759470   0.035 <= SB
+   1 HLA-A*24:03      IFLKPEETF IFLKPEETF  0  0  0  0  0    IFLKPEETF         PEPLIST 0.9823040   0.025 <= SB
+   1 HLA-A*24:03      IHTVFGSAF IHTVFGSAF  0  0  0  0  0    IHTVFGSAF         PEPLIST 0.0981650   2.195
+   1 HLA-A*24:03      IWEVEDYGF IWEVEDYGF  0  0  0  0  0    IWEVEDYGF         PEPLIST 0.5070490   0.595 <= WB
+   1 HLA-A*24:03      IYLPIVHPF IYLPIVHPF  0  0  0  0  0    IYLPIVHPF         PEPLIST 0.9989160   0.001 <= SB
+   1 HLA-A*24:03      KYFDDVTAF KYFDDVTAF  0  0  0  0  0    KYFDDVTAF         PEPLIST 0.9976430   0.003 <= SB
+   1 HLA-A*24:03      KYLLNVSYL KYLLNVSYL  0  0  0  0  0    KYLLNVSYL         PEPLIST 0.9756580   0.036 <= SB
+   1 HLA-A*24:03      KYMDNELVY KYMDNELVY  0  0  0  0  0    KYMDNELVY         PEPLIST 0.8525570   0.173 <= SB
+   1 HLA-A*24:03      KYQSPVNIF KYQSPVNIF  0  0  0  0  0    KYQSPVNIF         PEPLIST 0.9971610   0.003 <= SB
+   1 HLA-A*24:03      KYTHFFSGF KYTHFFSGF  0  0  0  0  0    KYTHFFSGF         PEPLIST 0.9849810   0.020 <= SB
+   1 HLA-A*24:03      KYYNDILKL KYYNDILKL  0  0  0  0  0    KYYNDILKL         PEPLIST 0.9923320   0.008 <= SB
+   1 HLA-A*24:03      LFPELDCFF LFPELDCFF  0  0  0  0  0    LFPELDCFF         PEPLIST 0.7462150   0.285 <= SB
+   1 HLA-A*24:03      LYAVTTAVL LYAVTTAVL  0  0  0  0  0    LYAVTTAVL         PEPLIST 0.8459230   0.181 <= SB
+   1 HLA-A*24:03      LYDAVAALF LYDAVAALF  0  0  0  0  0    LYDAVAALF         PEPLIST 0.9637280   0.051 <= SB
+   1 HLA-A*24:03      LYGLITEQF LYGLITEQF  0  0  0  0  0    LYGLITEQF         PEPLIST 0.9944560   0.006 <= SB
+   1 HLA-A*24:03      LYIEILRLL LYIEILRLL  0  0  0  0  0    LYIEILRLL         PEPLIST 0.9712430   0.043 <= SB
+   1 HLA-A*24:03      LYKSGLFQF LYKSGLFQF  0  0  0  0  0    LYKSGLFQF         PEPLIST 0.9911600   0.009 <= SB
+   1 HLA-A*24:03      LYNTAIVGL LYNTAIVGL  0  0  0  0  0    LYNTAIVGL         PEPLIST 0.8653760   0.160 <= SB
+   1 HLA-A*24:03      LYTVKYPNL LYTVKYPNL  0  0  0  0  0    LYTVKYPNL         PEPLIST 0.7825650   0.249 <= SB
+   1 HLA-A*24:03      MAGCGYLMF MAGCGYLMF  0  0  0  0  0    MAGCGYLMF         PEPLIST 0.0290340   3.917
+   1 HLA-A*24:03      MALVAFLRF MALVAFLRF  0  0  0  0  0    MALVAFLRF         PEPLIST 0.1419200   1.747 <= WB
+   1 HLA-A*24:03      MWHVTRGAF MWHVTRGAF  0  0  0  0  0    MWHVTRGAF         PEPLIST 0.3632910   0.863 <= WB
+   1 HLA-A*24:03      MYADDTAGW MYADDTAGW  0  0  0  0  0    MYADDTAGW         PEPLIST 0.8139850   0.217 <= SB
+   1 HLA-A*24:03      MYLRTIYDL MYLRTIYDL  0  0  0  0  0    MYLRTIYDL         PEPLIST 0.9306270   0.091 <= SB
+   1 HLA-A*24:03      MYMALIAAF MYMALIAAF  0  0  0  0  0    MYMALIAAF         PEPLIST 0.9718640   0.042 <= SB
+   1 HLA-A*24:03      NYFNRMFHF NYFNRMFHF  0  0  0  0  0    NYFNRMFHF         PEPLIST 0.9865320   0.017 <= SB
+   1 HLA-A*24:03      NYNGLLSSI NYNGLLSSI  0  0  0  0  0    NYNGLLSSI         PEPLIST 0.7737970   0.258 <= SB
+   1 HLA-A*24:03      NYPASLHKF NYPASLHKF  0  0  0  0  0    NYPASLHKF         PEPLIST 0.9954400   0.005 <= SB
+   1 HLA-A*24:03      NYYAPRIQF NYYAPRIQF  0  0  0  0  0    NYYAPRIQF         PEPLIST 0.9849030   0.020 <= SB
+   1 HLA-A*24:03      QFLSFASLF QFLSFASLF  0  0  0  0  0    QFLSFASLF         PEPLIST 0.9039690   0.120 <= SB
+   1 HLA-A*24:03      QYDVPMVSF QYDVPMVSF  0  0  0  0  0    QYDVPMVSF         PEPLIST 0.9837400   0.022 <= SB
+   1 HLA-A*24:03      QYPAFVLFI QYPAFVLFI  0  0  0  0  0    QYPAFVLFI         PEPLIST 0.9284710   0.093 <= SB
+   1 HLA-A*24:03      QYSDRRWCF QYSDRRWCF  0  0  0  0  0    QYSDRRWCF         PEPLIST 0.8625650   0.163 <= SB
+   1 HLA-A*24:03      QYSGFVRTL QYSGFVRTL  0  0  0  0  0    QYSGFVRTL         PEPLIST 0.9700630   0.044 <= SB
+   1 HLA-A*24:03      RMLPKLAEF RMLPKLAEF  0  0  0  0  0    RMLPKLAEF         PEPLIST 0.8362010   0.194 <= SB
+   1 HLA-A*24:03      RWFVRNPFF RWFVRNPFF  0  0  0  0  0    RWFVRNPFF         PEPLIST 0.9496850   0.067 <= SB
+   1 HLA-A*24:03      RYEFTAPFI RYEFTAPFI  0  0  0  0  0    RYEFTAPFI         PEPLIST 0.6804970   0.358 <= SB
+   1 HLA-A*24:03      RYICPVQQI RYICPVQQI  0  0  0  0  0    RYICPVQQI         PEPLIST 0.9645080   0.051 <= SB
+   1 HLA-A*24:03      RYKSRCYIF RYKSRCYIF  0  0  0  0  0    RYKSRCYIF         PEPLIST 0.8986490   0.126 <= SB
+   1 HLA-A*24:03      RYLVKTESW RYLVKTESW  0  0  0  0  0    RYLVKTESW         PEPLIST 0.9773060   0.032 <= SB
+   1 HLA-A*24:03      RYNCKCCWF RYNCKCCWF  0  0  0  0  0    RYNCKCCWF         PEPLIST 0.3178930   0.974 <= WB
+   1 HLA-A*24:03      RYPGVMYAF RYPGVMYAF  0  0  0  0  0    RYPGVMYAF         PEPLIST 0.9986620   0.001 <= SB
+   1 HLA-A*24:03      RYPIDPFLL RYPIDPFLL  0  0  0  0  0    RYPIDPFLL         PEPLIST 0.9836580   0.022 <= SB
+   1 HLA-A*24:03      RYQRMTGGY RYQRMTGGY  0  0  0  0  0    RYQRMTGGY         PEPLIST 0.3229040   0.961 <= WB
+   1 HLA-A*24:03      RYRTAVCGL RYRTAVCGL  0  0  0  0  0    RYRTAVCGL         PEPLIST 0.5162760   0.581 <= WB
+   1 HLA-A*24:03      RYTRRISLF RYTRRISLF  0  0  0  0  0    RYTRRISLF         PEPLIST 0.9869540   0.016 <= SB
+   1 HLA-A*24:03      RYVGLYLPF RYVGLYLPF  0  0  0  0  0    RYVGLYLPF         PEPLIST 0.9660850   0.049 <= SB
+   1 HLA-A*24:03      SFMQEIPTF SFMQEIPTF  0  0  0  0  0    SFMQEIPTF         PEPLIST 0.9955370   0.005 <= SB
+   1 HLA-A*24:03      SFSFGGFTF SFSFGGFTF  0  0  0  0  0    SFSFGGFTF         PEPLIST 0.9671360   0.048 <= SB
+   1 HLA-A*24:03      SLPPNFSSL SLPPNFSSL  0  0  0  0  0    SLPPNFSSL         PEPLIST 0.5760870   0.492 <= SB
+   1 HLA-A*24:03      SWHHTSDDF SWHHTSDDF  0  0  0  0  0    SWHHTSDDF         PEPLIST 0.5600830   0.515 <= WB
+   1 HLA-A*24:03      SYHDRRWCF SYHDRRWCF  0  0  0  0  0    SYHDRRWCF         PEPLIST 0.9340850   0.087 <= SB
+   1 HLA-A*24:03      SYINRTGTF SYINRTGTF  0  0  0  0  0    SYINRTGTF         PEPLIST 0.9798390   0.028 <= SB
+   1 HLA-A*24:03      SYLIRALTL SYLIRALTL  0  0  0  0  0    SYLIRALTL         PEPLIST 0.9766670   0.033 <= SB
+   1 HLA-A*24:03      SYLRRTQSM SYLRRTQSM  0  0  0  0  0    SYLRRTQSM         PEPLIST 0.9413590   0.077 <= SB
+   1 HLA-A*24:03      SYRNFSFSL SYRNFSFSL  0  0  0  0  0    SYRNFSFSL         PEPLIST 0.9010420   0.124 <= SB
+   1 HLA-A*24:03      SYSTPALTL SYSTPALTL  0  0  0  0  0    SYSTPALTL         PEPLIST 0.9790830   0.029 <= SB
+   1 HLA-A*24:03      SYYPDQKSL SYYPDQKSL  0  0  0  0  0    SYYPDQKSL         PEPLIST 0.9769070   0.033 <= SB
+   1 HLA-A*24:03      TFHLSIPNF TFHLSIPNF  0  0  0  0  0    TFHLSIPNF         PEPLIST 0.9397110   0.080 <= SB
+   1 HLA-A*24:03      TFMYVFSTF TFMYVFSTF  0  0  0  0  0    TFMYVFSTF         PEPLIST 0.9497060   0.067 <= SB
+   1 HLA-A*24:03      TMLYNKMEF TMLYNKMEF  0  0  0  0  0    TMLYNKMEF         PEPLIST 0.3639390   0.862 <= WB
+   1 HLA-A*24:03      TYGVCAKAF TYGVCAKAF  0  0  0  0  0    TYGVCAKAF         PEPLIST 0.6731210   0.366 <= SB
+   1 HLA-A*24:03      TYGVCSKAF TYGVCSKAF  0  0  0  0  0    TYGVCSKAF         PEPLIST 0.7191420   0.314 <= SB
+   1 HLA-A*24:03      TYGWNIVKL TYGWNIVKL  0  0  0  0  0    TYGWNIVKL         PEPLIST 0.9617700   0.054 <= SB
+   1 HLA-A*24:03      TYGWNLVKL TYGWNLVKL  0  0  0  0  0    TYGWNLVKL         PEPLIST 0.9430120   0.075 <= SB
+   1 HLA-A*24:03      TYLALMATF TYLALMATF  0  0  0  0  0    TYLALMATF         PEPLIST 0.9896000   0.012 <= SB
+   1 HLA-A*24:03      TYLYNKYSF TYLYNKYSF  0  0  0  0  0    TYLYNKYSF         PEPLIST 0.9884730   0.013 <= SB
+   1 HLA-A*24:03      TYQWIIRNW TYQWIIRNW  0  0  0  0  0    TYQWIIRNW         PEPLIST 0.9188140   0.103 <= SB
+   1 HLA-A*24:03      VFSPFGYSF VFSPFGYSF  0  0  0  0  0    VFSPFGYSF         PEPLIST 0.9938150   0.007 <= SB
+   1 HLA-A*24:03      VMGDAAWDF VMGDAAWDF  0  0  0  0  0    VMGDAAWDF         PEPLIST 0.1655840   1.591 <= WB
+   1 HLA-A*24:03      VMLLDIDYF VMLLDIDYF  0  0  0  0  0    VMLLDIDYF         PEPLIST 0.3221490   0.963 <= WB
+   1 HLA-A*24:03      VQLPQYFTF VQLPQYFTF  0  0  0  0  0    VQLPQYFTF         PEPLIST 0.9081210   0.115 <= SB
+   1 HLA-A*24:03      VYAPAGVEL VYAPAGVEL  0  0  0  0  0    VYAPAGVEL         PEPLIST 0.9892590   0.012 <= SB
+   1 HLA-A*24:03      VYFSPWFFL VYFSPWFFL  0  0  0  0  0    VYFSPWFFL         PEPLIST 0.9607890   0.055 <= SB
+   1 HLA-A*24:03      VYMDAVFEY VYMDAVFEY  0  0  0  0  0    VYMDAVFEY         PEPLIST 0.9355700   0.085 <= SB
+   1 HLA-A*24:03      VYQRGTHPF VYQRGTHPF  0  0  0  0  0    VYQRGTHPF         PEPLIST 0.9906000   0.010 <= SB
+   1 HLA-A*24:03      VYYIVVRDF VYYIVVRDF  0  0  0  0  0    VYYIVVRDF         PEPLIST 0.9342960   0.086 <= SB
+   1 HLA-A*24:03      WFMWLGARF WFMWLGARF  0  0  0  0  0    WFMWLGARF         PEPLIST 0.4955350   0.613 <= WB
+   1 HLA-A*24:03      WFQRIPLQW WFQRIPLQW  0  0  0  0  0    WFQRIPLQW         PEPLIST 0.8302410   0.201 <= SB
+   1 HLA-A*24:03      WHDWQQVPF WHDWQQVPF  0  0  0  0  0    WHDWQQVPF         PEPLIST 0.0617190   2.764
+   1 HLA-A*24:03      WLGARFLEF WLGARFLEF  0  0  0  0  0    WLGARFLEF         PEPLIST 0.1135420   2.002
+   1 HLA-A*24:03      WLGARYLEF WLGARYLEF  0  0  0  0  0    WLGARYLEF         PEPLIST 0.0883540   2.318
+   1 HLA-A*24:03      WYDWQQVPF WYDWQQVPF  0  0  0  0  0    WYDWQQVPF         PEPLIST 0.7444400   0.287 <= SB
+   1 HLA-A*24:03      WYGMEIRPL WYGMEIRPL  0  0  0  0  0    WYGMEIRPL         PEPLIST 0.2639990   1.137 <= WB
+   1 HLA-A*24:03      WYMWLGARF WYMWLGARF  0  0  0  0  0    WYMWLGARF         PEPLIST 0.8334850   0.197 <= SB
+   1 HLA-A*24:03      WYMWLGARY WYMWLGARY  0  0  0  0  0    WYMWLGARY         PEPLIST 0.3152110   0.980 <= WB
+   1 HLA-A*24:03      YLAPSYRNF YLAPSYRNF  0  0  0  0  0    YLAPSYRNF         PEPLIST 0.7309730   0.300 <= SB
+   1 HLA-A*24:03      YLKKWLNSF YLKKWLNSF  0  0  0  0  0    YLKKWLNSF         PEPLIST 0.3816380   0.822 <= WB
+   1 HLA-A*24:03      YMTLQAVTF YMTLQAVTF  0  0  0  0  0    YMTLQAVTF         PEPLIST 0.4367210   0.712 <= WB
+   1 HLA-A*24:03      YTPLNYSKF YTPLNYSKF  0  0  0  0  0    YTPLNYSKF         PEPLIST 0.6869600   0.351 <= SB
+   1 HLA-A*24:03      YYAFVGVMY YYAFVGVMY  0  0  0  0  0    YYAFVGVMY         PEPLIST 0.6077020   0.449 <= SB
+   1 HLA-A*24:03      YYIIETEHL YYIIETEHL  0  0  0  0  0    YYIIETEHL         PEPLIST 0.9876520   0.015 <= SB
+   1 HLA-A*24:03      YYKDDISYF YYKDDISYF  0  0  0  0  0    YYKDDISYF         PEPLIST 0.9965170   0.004 <= SB
+   1 HLA-A*24:03      YYLEKANKI YYLEKANKI  0  0  0  0  0    YYLEKANKI         PEPLIST 0.9796810   0.028 <= SB
+   1 HLA-A*24:03      YYTEDQGQF YYTEDQGQF  0  0  0  0  0    YYTEDQGQF         PEPLIST 0.9473650   0.069 <= SB
+   1 HLA-A*24:03      YYYNFSEDL YYYNFSEDL  0  0  0  0  0    YYYNFSEDL         PEPLIST 0.9009910   0.124 <= SB
+   1 HLA-A*24:03      AYINWGFGI AYINWGFGI  0  0  0  0  0    AYINWGFGI         PEPLIST 0.7933610   0.238 <= SB
+   1 HLA-A*24:03      FWLMVYEGL FWLMVYEGL  0  0  0  0  0    FWLMVYEGL         PEPLIST 0.2154030   1.325 <= WB
+   1 HLA-A*24:03      FYPEKSTVI FYPEKSTVI  0  0  0  0  0    FYPEKSTVI         PEPLIST 0.9000460   0.125 <= SB
+   1 HLA-A*24:03      GWPDNYCEW GWPDNYCEW  0  0  0  0  0    GWPDNYCEW         PEPLIST 0.8204500   0.211 <= SB
+   1 HLA-A*24:03      GYAWIDFDI GYAWIDFDI  0  0  0  0  0    GYAWIDFDI         PEPLIST 0.3433890   0.909 <= WB
+   1 HLA-A*24:03      GYTVARSQL GYTVARSQL  0  0  0  0  0    GYTVARSQL         PEPLIST 0.5294270   0.561 <= WB
+   1 HLA-A*24:03      HYDAPVFPI HYDAPVFPI  0  0  0  0  0    HYDAPVFPI         PEPLIST 0.6651040   0.376 <= SB
+   1 HLA-A*24:03      IFRRDQIWF IFRRDQIWF  0  0  0  0  0    IFRRDQIWF         PEPLIST 0.5825430   0.483 <= SB
+   1 HLA-A*24:03      ILIKCYYMF ILIKCYYMF  0  0  0  0  0    ILIKCYYMF         PEPLIST 0.1714850   1.552 <= WB
+   1 HLA-A*24:03      MFINDVHAL MFINDVHAL  0  0  0  0  0    MFINDVHAL         PEPLIST 0.7203050   0.312 <= SB
+   1 HLA-A*24:03      MFSVYDYGF MFSVYDYGF  0  0  0  0  0    MFSVYDYGF         PEPLIST 0.6141500   0.440 <= SB
+   1 HLA-A*24:03      MFVSNRWFL MFVSNRWFL  0  0  0  0  0    MFVSNRWFL         PEPLIST 0.6572000   0.385 <= SB
+   1 HLA-A*24:03      MYLRFAERL MYLRFAERL  0  0  0  0  0    MYLRFAERL         PEPLIST 0.9402870   0.079 <= SB
+   1 HLA-A*24:03      NFGRVKVHF NFGRVKVHF  0  0  0  0  0    NFGRVKVHF         PEPLIST 0.8400710   0.189 <= SB
+   1 HLA-A*24:03      NFWLNTLLF NFWLNTLLF  0  0  0  0  0    NFWLNTLLF         PEPLIST 0.7967950   0.235 <= SB
+   1 HLA-A*24:03      PYWQGIWDK PYWQGIWDK  0  0  0  0  0    PYWQGIWDK         PEPLIST 0.0432140   3.273
+   1 HLA-A*24:03      QYQYLSILF QYQYLSILF  0  0  0  0  0    QYQYLSILF         PEPLIST 0.9835450   0.022 <= SB
+   1 HLA-A*24:03      RLMPDFWEF RLMPDFWEF  0  0  0  0  0    RLMPDFWEF         PEPLIST 0.9355470   0.085 <= SB
+   1 HLA-A*24:03      RWFDNNHDL RWFDNNHDL  0  0  0  0  0    RWFDNNHDL         PEPLIST 0.8582060   0.167 <= SB
+   1 HLA-A*24:03      RYPRSVLTF RYPRSVLTF  0  0  0  0  0    RYPRSVLTF         PEPLIST 0.9989750   0.001 <= SB
+   1 HLA-A*24:03      RYRRLIQIL RYRRLIQIL  0  0  0  0  0    RYRRLIQIL         PEPLIST 0.8748380   0.150 <= SB
+   1 HLA-A*24:03      TYFEEPAAF TYFEEPAAF  0  0  0  0  0    TYFEEPAAF         PEPLIST 0.9930600   0.007 <= SB
+   1 HLA-A*24:03      WFGHLASDW WFGHLASDW  0  0  0  0  0    WFGHLASDW         PEPLIST 0.1608120   1.620 <= WB
+   1 HLA-A*24:03      YVPTEFWGF YVPTEFWGF  0  0  0  0  0    YVPTEFWGF         PEPLIST 0.6726050   0.367 <= SB
+   1 HLA-A*24:03      YWMGGTTYF YWMGGTTYF  0  0  0  0  0    YWMGGTTYF         PEPLIST 0.9777670   0.031 <= SB
+   1 HLA-A*24:03      AFMRFDDQF AFMRFDDQF  0  0  0  0  0    AFMRFDDQF         PEPLIST 0.8659740   0.159 <= SB
+   1 HLA-A*24:03      AYFLEAQEM AYFLEAQEM  0  0  0  0  0    AYFLEAQEM         PEPLIST 0.8915380   0.133 <= SB
+   1 HLA-A*24:03      AYGENFEFW AYGENFEFW  0  0  0  0  0    AYGENFEFW         PEPLIST 0.9748730   0.038 <= SB
+   1 HLA-A*24:03      AYPKWKFFL AYPKWKFFL  0  0  0  0  0    AYPKWKFFL         PEPLIST 0.9764100   0.034 <= SB
+   1 HLA-A*24:03      FFPMVTDAW FFPMVTDAW  0  0  0  0  0    FFPMVTDAW         PEPLIST 0.8065770   0.225 <= SB
+   1 HLA-A*24:03      GWALGYLYF GWALGYLYF  0  0  0  0  0    GWALGYLYF         PEPLIST 0.7422980   0.289 <= SB
+   1 HLA-A*24:03      GYQHKTLAI GYQHKTLAI  0  0  0  0  0    GYQHKTLAI         PEPLIST 0.7329800   0.298 <= SB
+   1 HLA-A*24:03      KWFNNEKGF KWFNNEKGF  0  0  0  0  0    KWFNNEKGF         PEPLIST 0.8520790   0.174 <= SB
+   1 HLA-A*24:03      KYLPNGDYI KYLPNGDYI  0  0  0  0  0    KYLPNGDYI         PEPLIST 0.9418180   0.077 <= SB
+   1 HLA-A*24:03      MYTRNLLWL MYTRNLLWL  0  0  0  0  0    MYTRNLLWL         PEPLIST 0.8050980   0.226 <= SB
+   1 HLA-A*24:03      RFNNLTVYF RFNNLTVYF  0  0  0  0  0    RFNNLTVYF         PEPLIST 0.9837610   0.022 <= SB
+   1 HLA-A*24:03      RFTPVKHEL RFTPVKHEL  0  0  0  0  0    RFTPVKHEL         PEPLIST 0.9616290   0.054 <= SB
+   1 HLA-A*24:03      RTLNELWFL RTLNELWFL  0  0  0  0  0    RTLNELWFL         PEPLIST 0.2484360   1.191 <= WB
+   1 HLA-A*24:03      RTQAVIYAF RTQAVIYAF  0  0  0  0  0    RTQAVIYAF         PEPLIST 0.5849690   0.480 <= SB
+   1 HLA-A*24:03      RYGWSGAVF RYGWSGAVF  0  0  0  0  0    RYGWSGAVF         PEPLIST 0.9677400   0.047 <= SB
+   1 HLA-A*24:03      RYPAIAGGI RYPAIAGGI  0  0  0  0  0    RYPAIAGGI         PEPLIST 0.6854710   0.352 <= SB
+   1 HLA-A*24:03      RYQAQQVEW RYQAQQVEW  0  0  0  0  0    RYQAQQVEW         PEPLIST 0.9826270   0.024 <= SB
+   1 HLA-A*24:03      SYLQAIGIL SYLQAIGIL  0  0  0  0  0    SYLQAIGIL         PEPLIST 0.9060040   0.118 <= SB
+   1 HLA-A*24:03      VYFVLTDRF VYFVLTDRF  0  0  0  0  0    VYFVLTDRF         PEPLIST 0.9798450   0.028 <= SB
+   1 HLA-A*24:03      YFHAELNYL YFHAELNYL  0  0  0  0  0    YFHAELNYL         PEPLIST 0.7434300   0.288 <= SB
+   1 HLA-A*24:03      YWPTEGYEF YWPTEGYEF  0  0  0  0  0    YWPTEGYEF         PEPLIST 0.9526730   0.064 <= SB
+   1 HLA-A*24:03      YYGKTPMQI YYGKTPMQI  0  0  0  0  0    YYGKTPMQI         PEPLIST 0.9782420   0.030 <= SB
+------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*24:03. Number of high binders 137. Number of weak binders 29. Number of peptides 173
+
+-----------------------------------------------------------------------------------

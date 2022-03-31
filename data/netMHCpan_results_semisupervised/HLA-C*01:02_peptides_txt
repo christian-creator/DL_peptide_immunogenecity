@@ -1,0 +1,97 @@
+# /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/bin/netMHCpan -p -f peptides_file_supervised/HLA-C*01:02_peptides_txt -a HLA-C01:02
+# Thu Mar 31 14:09:47 2022
+# User: chrjac
+# PWD : /home/projects/vaccine/people/chrjac/DL_project
+# Host: Linux g-04-c0294 3.10.0-1062.4.1.el7.x86_64 x86_64
+# -p       1                    Use peptide input
+# -f       peptides_file_supervised/HLA-C*01:02_peptides_txt File name with input
+# -a       HLA-C01:02           HLA allele
+# Command line parameters set to:
+#	[-rdir filename]     /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64 Home directory for NetMHpan
+#	[-syn filename]      /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/synlist.bin Synaps file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /scratch/35325816/netMHCpanXXXXXX Temporary directory (made with mkdtemp)
+#	[-hlapseudo filename] /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/MHC_pseudo.dat File with HLA pseudo sequences
+#	[-hlaseq filename]                        File with full length HLA sequences
+#	[-a line]            HLA-C01:02           HLA allele
+#	[-f filename]        peptides_file_supervised/HLA-C*01:02_peptides_txt File name with input
+#	[-w]                 0                    w option for webface
+#	[-s]                 0                    Sort output on descending affinity
+#	[-p]                 1                    Use peptide input
+#	[-rth float]         0.500000             Rank Threshold for high binding peptides
+#	[-rlt float]         2.000000             Rank Threshold for low binding peptides
+#	[-l string]          8,9,10,11            Peptide length [8-11] (multiple length with ,)
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetMHCpan_out.xls    Filename for xls dump
+#	[-t float]           -99.900002           Threshold for output
+#	[-thrfmt filename]   /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/threshold/%s.thr.%s Format for threshold filenames
+#	[-expfix]            0                    Exclude prefix from synlist
+#	[-version filename]  /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listMHC]           0                    Print list of alleles included in netMHCpan
+#	[-allname filename]  /home/projects/vaccine/people/morni/netMHCpan-4.1/Linux_x86_64/data/allelenames File with print names for alleles
+#	[-BA]                0                    Include Binding affinity prediction
+
+# NetMHCpan version 4.1b
+
+# Tmpdir made /scratch/35325816/netMHCpanfD9dbn
+# Input is in PEPTIDE format
+
+# Make EL predictions
+
+HLA-C01:02 : Distance to training data  0.000 (using nearest neighbor HLA-C01:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+------------------------------------------------------------------------------------------------------------
+ Pos         HLA        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL  Rnk_EL BindLevel
+------------------------------------------------------------------------------------------------------------
+   1 HLA-C*01:02      AQPGYPWPL AQPGYPWPL  0  0  0  0  0    AQPGYPWPL         PEPLIST 0.3646910   0.228 <= SB
+   1 HLA-C*01:02      ARPDYNPPL ARPDYNPPL  0  0  0  0  0    ARPDYNPPL         PEPLIST 0.0737060   1.205 <= WB
+   1 HLA-C*01:02      DIPERIYSL DIPERIYSL  0  0  0  0  0    DIPERIYSL         PEPLIST 0.5473280   0.113 <= SB
+   1 HLA-C*01:02      IAPRSGLSL IAPRSGLSL  0  0  0  0  0    IAPRSGLSL         PEPLIST 0.9830780   0.003 <= SB
+   1 HLA-C*01:02      KVFDKSLLY KVFDKSLLY  0  0  0  0  0    KVFDKSLLY         PEPLIST 0.0111840   4.372
+   1 HLA-C*01:02      LLPRRGPRL LLPRRGPRL  0  0  0  0  0    LLPRRGPRL         PEPLIST 0.7375020   0.052 <= SB
+   1 HLA-C*01:02      SLFKNVRLL SLFKNVRLL  0  0  0  0  0    SLFKNVRLL         PEPLIST 0.1885980   0.496 <= SB
+   1 HLA-C*01:02      VLPCSFTTL VLPCSFTTL  0  0  0  0  0    VLPCSFTTL         PEPLIST 0.8899880   0.019 <= SB
+   1 HLA-C*01:02      KVYEAVLRH KVYEAVLRH  0  0  0  0  0    KVYEAVLRH         PEPLIST 0.0010230  13.175
+   1 HLA-C*01:02      LNPSVAATL LNPSVAATL  0  0  0  0  0    LNPSVAATL         PEPLIST 0.3910430   0.206 <= SB
+   1 HLA-C*01:02      LSPHYKVFL LSPHYKVFL  0  0  0  0  0    LSPHYKVFL         PEPLIST 0.7527690   0.048 <= SB
+   1 HLA-C*01:02      LSPRPVSYL LSPRPVSYL  0  0  0  0  0    LSPRPVSYL         PEPLIST 0.9139800   0.014 <= SB
+   1 HLA-C*01:02      RAYLNTPGL RAYLNTPGL  0  0  0  0  0    RAYLNTPGL         PEPLIST 0.2733130   0.324 <= SB
+   1 HLA-C*01:02     KLFSDISAIG KLFSDISAI  0  0  0  0  0    KLFSDISAI         PEPLIST 0.0000220  44.500
+   1 HLA-C*01:02      FAPSASAFF FAPSASAFF  0  0  0  0  0    FAPSASAFF         PEPLIST 0.7852840   0.040 <= SB
+   1 HLA-C*01:02      SIIAYTMSL SIIAYTMSL  0  0  0  0  0    SIIAYTMSL         PEPLIST 0.2244470   0.416 <= SB
+   1 HLA-C*01:02      MIAQYTSAL MIAQYTSAL  0  0  0  0  0    MIAQYTSAL         PEPLIST 0.2683710   0.333 <= SB
+   1 HLA-C*01:02      AAPFGRVSV AAPFGRVSV  0  0  0  0  0    AAPFGRVSV         PEPLIST 0.7794630   0.042 <= SB
+   1 HLA-C*01:02      AAPFRPLAV AAPFRPLAV  0  0  0  0  0    AAPFRPLAV         PEPLIST 0.8475220   0.026 <= SB
+   1 HLA-C*01:02      AAPNRIIDL AAPNRIIDL  0  0  0  0  0    AAPNRIIDL         PEPLIST 0.9116770   0.014 <= SB
+   1 HLA-C*01:02      DMPVQRLTV DMPVQRLTV  0  0  0  0  0    DMPVQRLTV         PEPLIST 0.1458090   0.671 <= WB
+   1 HLA-C*01:02      ISYPVSTTV ISYPVSTTV  0  0  0  0  0    ISYPVSTTV         PEPLIST 0.2928790   0.294 <= SB
+   1 HLA-C*01:02      LAPDLVSSL LAPDLVSSL  0  0  0  0  0    LAPDLVSSL         PEPLIST 0.9655060   0.005 <= SB
+   1 HLA-C*01:02      LAPEAGLEV LAPEAGLEV  0  0  0  0  0    LAPEAGLEV         PEPLIST 0.7556290   0.048 <= SB
+   1 HLA-C*01:02     RLHDNSISEL RLHDNSISL  0  8  1  0  0   RLHDNSISEL         PEPLIST 0.0821720   1.111 <= WB
+   1 HLA-C*01:02      RLPQFSSAL RLPQFSSAL  0  0  0  0  0    RLPQFSSAL         PEPLIST 0.9617490   0.006 <= SB
+   1 HLA-C*01:02     RLSEPPTLAL RLSEPPTAL  0  7  1  0  0   RLSEPPTLAL         PEPLIST 0.1376600   0.709 <= WB
+   1 HLA-C*01:02      SSPMTTTST SSPMTTTST  0  0  0  0  0    SSPMTTTST         PEPLIST 0.1463530   0.668 <= WB
+   1 HLA-C*01:02      SVPYRWINL SVPYRWINL  0  0  0  0  0    SVPYRWINL         PEPLIST 0.6884440   0.065 <= SB
+   1 HLA-C*01:02      TAPDSRETL TAPDSRETL  0  0  0  0  0    TAPDSRETL         PEPLIST 0.9610640   0.006 <= SB
+   1 HLA-C*01:02      TAPIGISSL TAPIGISSL  0  0  0  0  0    TAPIGISSL         PEPLIST 0.9826230   0.003 <= SB
+   1 HLA-C*01:02      VIPPAPTVL VIPPAPTVL  0  0  0  0  0    VIPPAPTVL         PEPLIST 0.9912580   0.001 <= SB
+   1 HLA-C*01:02      VSPYTTEEM VSPYTTEEM  0  0  0  0  0    VSPYTTEEM         PEPLIST 0.7757460   0.043 <= SB
+   1 HLA-C*01:02      YVKPPSLAL YVKPPSLAL  0  0  0  0  0    YVKPPSLAL         PEPLIST 0.7271010   0.055 <= SB
+   1 HLA-C*01:02      ISMGKYLSI ISMGKYLSI  0  0  0  0  0    ISMGKYLSI         PEPLIST 0.1262700   0.767 <= WB
+   1 HLA-C*01:02      LAALGVTEV LAALGVTEV  0  0  0  0  0    LAALGVTEV         PEPLIST 0.0535950   1.567 <= WB
+   1 HLA-C*01:02      LAFGAATLL LAFGAATLL  0  0  0  0  0    LAFGAATLL         PEPLIST 0.1281030   0.758 <= WB
+   1 HLA-C*01:02      LASIADAVL LASIADAVL  0  0  0  0  0    LASIADAVL         PEPLIST 0.0628880   1.387 <= WB
+   1 HLA-C*01:02      LAVTSVVTI LAVTSVVTI  0  0  0  0  0    LAVTSVVTI         PEPLIST 0.0416140   1.914 <= WB
+   1 HLA-C*01:02      LPVKPISQL LPVKPISQL  0  0  0  0  0    LPVKPISQL         PEPLIST 0.0903720   1.025 <= WB
+   1 HLA-C*01:02      TAPTVTLSL TAPTVTLSL  0  0  0  0  0    TAPTVTLSL         PEPLIST 0.9730230   0.004 <= SB
+   1 HLA-C*01:02      VAAAVVVAV VAAAVVVAV  0  0  0  0  0    VAAAVVVAV         PEPLIST 0.0368190   2.107
+   1 HLA-C*01:02      YSDKVVTKV YSDKVVTKV  0  0  0  0  0    YSDKVVTKV         PEPLIST 0.1745870   0.549 <= WB
+------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-C*01:02. Number of high binders 27. Number of weak binders 12. Number of peptides 43
+
+-----------------------------------------------------------------------------------
