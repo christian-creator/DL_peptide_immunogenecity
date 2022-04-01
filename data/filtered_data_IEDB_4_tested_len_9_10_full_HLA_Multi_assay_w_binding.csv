@@ -1,4 +1,4 @@
-,peptide,HLA,immunogenicity,tested_subjects,positive_subjects,Response,binding_score
+,peptide,HLA_allele,immunogenicity,tested_subjects,positive_subjects,Response,binding_score
 6,AAGIGILTV,HLA-A*02:01,0.8333333333333334,4.0,4.0,Positive,0.0592380
 8,AAISDYDYY,HLA-A*01:01,0.2857142857142857,5.0,1.0,Positive,0.3568300
 9,AALFFFDID,HLA-A*02:01,0.25,10.0,2.0,Positive,0.0000030
