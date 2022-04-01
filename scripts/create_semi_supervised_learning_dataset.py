@@ -138,5 +138,9 @@ for i,unsupervised_row in tqdm(unsupervised_df.iterrows()):
 
 # %%
 unsupervised_df = unsupervised_df.drop(unsupervised_df.index[black_list_indexes])
-unsupervised_df.to_csv("../data/semi_supervised_data_w_binding_no_overlap.csv")
+not_blacklisted = [x for x in unsupervised_df.index if x not in black_list_indexes]
+unsupervised_df_not_bl = unsupervised_df.loc[not_blacklisted,:]
+unsupervised_df_not_bl.to_csv("../data/semi_supervised_data_w_binding_no_overlap.csv")
+
+# %%
 # %%
