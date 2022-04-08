@@ -8,3 +8,4 @@ data/MHCI/epitope_data_MHCI.csv
 /tmp
 data/gibbs_immunogenic
 DeepImmuno
+.DS_Store
