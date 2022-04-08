@@ -27,26 +27,3 @@ import os
 # print(big_file.loc[133,"parts"])
 # big_file.to_csv("../data/astrids_bigfile")
 
-big_file = pd.read_csv("../data/semi_supervised_data_w_binding_no_overlap.csv")
-path_to_file = "../data/semi_supervised_data_w_binding.csv"
-
-# add parts column with zeros all the way 
-n = big_file.shape[0]
-empty_column = np.empty((n))
-big_file = big_file.assign(binding_score=empty_column)
-
-
-binding_data = pd.read_csv(path_to_file,sep="\t",names=["peptide","HLA_allele", "Qualitative Measure", "binding_score"])
-for i in range(binding_data.shape[0]):
-    small_file_peptide = binding_data.loc[i, "peptide"]
-    small_file_hla = binding_data.loc[i, "HLA_allele"]
-    binding = binding_data.loc[i,"binding_score"]
-    for j in range(big_file.shape[0]):
-        peptide = big_file.loc[j,"peptide"]
-        mhc = big_file.loc[j,"HLA_allele"]
-        if peptide == small_file_peptide and mhc == small_file_hla:                
-            big_file.iloc[j,"binding_score"] = binding
-            break
-  
-#print(big_file.loc[133,"parts"])
-big_file.to_csv("../data/semi_supervised_data_w_binding_no_overlap_astrid")
