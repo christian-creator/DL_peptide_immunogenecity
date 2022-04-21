@@ -1,4 +1,4 @@
-,Unnamed: 0,Unnamed: 0.1,peptide,HLA_allele,potential,test,positive_subjects,immunogenicity,parts,binding_score
+,Unnamed: 0,Unnamed: 0.1,peptide,HLA_allele,potential,tested_subjects,positive_subjects,immunogenicity,parts,binding_score
 0,0,5,AAGIGILTV,HLA-A*02:01,0.8333333333333334,4.0,4.0,Positive,6.0,6.0
 1,1,6,AALFFFDID,HLA-A*02:01,0.25,10.0,2.0,Positive,2.0,2.0
 2,2,10,AAVKAGAAL,HLA-B*07:02,0.75,2.0,2.0,Positive,0.0,0.0
