@@ -575,7 +575,7 @@ class RNN_model_best(nn.Module):
 
 peptide_length = 10
 encoding_dimensions = 12
-HLA_length = 366
+HLA_length_long = 366
 input_channels = 1
 
 # define network
@@ -609,19 +609,19 @@ class test_model(nn.Module):
         # CNN encoding - peptide
         # RNN_encoding_dim = 10
         # self.peptide_encoding = nn.LSTM(encoding_dimensions, RNN_encoding_dim, batch_first=True, num_layers = 1, bidirectional=False)
-        out_channels_conv1_peptide = 8 
-        self.conv1_peptide = Conv2d(in_channels=input_channels,
-                            out_channels=out_channels_conv1_hla,
-                            kernel_size=(1,encoding_dimension),
-                            stride=1,
-                            padding=0)
-        self.BatchNorm_conv1_peptide = BatchNorm2d(out_channels_conv1_peptide) # Output channels from the previous layer
+        # out_channels_conv1_peptide = 8 
+        # self.conv1_peptide = Conv2d(in_channels=input_channels,
+        #                     out_channels=out_channels_conv1_hla,
+        #                     kernel_size=(1,encoding_dimension),
+        #                     stride=1,
+        #                     padding=0)
+        # self.BatchNorm_conv1_peptide = BatchNorm2d(out_channels_conv1_peptide) # Output channels from the previous layer
         # self.maxpool1_hla = nn.MaxPool2d(kernel_size=(15,1),
         #                                     stride=(2,1))
 
 
         # Denselayer
-        in_dimensions_L_in = 80 + 240
+        in_dimensions_L_in = peptide_length*encoding_dimension + 240
         out_dimension_L_in = int(in_dimensions_L_in/2)
         self.drop_out = nn.Dropout(p=0.4)
 
@@ -637,7 +637,7 @@ class test_model(nn.Module):
         # self.batchnorm2 = nn.BatchNorm1d(out_dimensions_L_2)
 
         # out_dimensions_L_3 = int(out_dimensions_L_2/2)
-        # self.L_3 = Linear(in_features =  out_dimensions_L_2,
+        # self.L_3 = Linear(in_features =  out_dimension_L_in + out_dimensions_L_2,
         #                     out_features = 1)
         
         # self.batchnorm3 = nn.BatchNorm1d(out_dimensions_L_3)
@@ -652,14 +652,12 @@ class test_model(nn.Module):
         # Encoding RNN
         # context_embedded_peptide,attn_output_weights = self.peptide_attention(peptide,peptide,peptide)
         # rnn_peptide, (hn_peptide, cn_peptide) = self.peptide_encoding(peptide)
-        peptide = self.add_channel_dimension(peptide)
-        peptide = self.conv1_peptide(peptide)
-        peptide = self.BatchNorm_conv1_peptide(peptide)
-        peptide = relu(peptide)
+        # peptide = self.add_channel_dimension(peptide)
+        # peptide = self.conv1_peptide(peptide)
+        # peptide = self.BatchNorm_conv1_peptide(peptide)
+        # peptide = relu(peptide)
 
         peptide = torch.flatten(peptide,start_dim=1)
-        print(peptide.shape)
-        exit()
 
         # feature extraction HLA
         HLA = self.add_channel_dimension(HLA)
@@ -674,14 +672,6 @@ class test_model(nn.Module):
         HLA = self.maxpool2_hla(HLA)
         HLA = torch.flatten(HLA,start_dim=1)
 
-        # HLA = self.add_channel_dimension(HLA)
-        # HLA = self.conv1_hla(HLA)
-        # HLA = self.BatchNorm_conv1_peptides(HLA)
-        # HLA = relu(HLA)
-        # HLA = self.maxpool1_hla(HLA)
-
-
-        HLA = torch.flatten(HLA,start_dim=1)
         if binding_score is not None: 
             combined_input = torch.cat((peptide, HLA, binding_score), 1)
         else:
@@ -695,12 +685,13 @@ class test_model(nn.Module):
         
         # l_2_input = torch.cat((L_1_act, combined_input), 1)
         L_2_act = self.L_2(L_1_act)
-        # L_2_act = relu(L_2_act)
         # L_2_act = self.batchnorm2(L_2_act)
         # L_2_act = self.drop_out(L_2_act)
+        # L_2_act = relu(L_2_act)
+        
 
-        # l_3_input = torch.cat((L_2_act, L_1_act, combined_input), 1)
-        # x = self.L_3(L_2_act)
+        # l_3_input = torch.cat((L_2_act, L_1_act), 1)
+        # l_3_act = self.L_3(l_3_input)
         # L_3_act = relu(L_3_act)
         # L_3_act = self.batchnorm3(L_3_act)
         # L_3_act = self.drop_out(L_3_act)

@@ -4,7 +4,7 @@ import numpy as np
 import os
 import sys
 all_data = pd.read_csv("../data/ifng_test.csv",index_col=0)
-binding_scores = pd.read_csv("../data/binding_results_ifng_2.csv",index_col=0)
+binding_scores = pd.read_csv("../tmp/binding_results_ifng_2.csv",index_col=0)
 # %%
 # add parts column with zeros all the way 
 n = all_data.shape[0]
@@ -38,5 +38,5 @@ print(counter)
 # %%
 
 # %%
-all_data.to_csv("../data/ifng_test_w_parts_w_binding_scores.csv")
+all_data.to_csv("../tmp/ifng_test_w_parts_w_binding_scores.csv")
 # %%
