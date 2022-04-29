@@ -575,7 +575,7 @@ class RNN_model_best(nn.Module):
 
 peptide_length = 10
 encoding_dimensions = 12
-HLA_length = 366
+HLA_length = 34
 input_channels = 1
 
 # define network
