@@ -22,20 +22,20 @@ def calculate_immunogenecity_score(tested_subjects,positive_subjects):
 
 ## Read epitope data
 # path_to_epitope_file = "/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/eptope_data_MHCII.csv"
-path_to_epitope_file = "../data/MHCI/epitope_data_MHCI.csv"
+path_to_epitope_file = "data/MHCI/epitope_data_MHCI.csv"
 epitope_raw_df = pd.read_csv(path_to_epitope_file,skiprows=1)
 epitope_raw_df = epitope_raw_df[['Epitope ID',"Description","Antigen Name"]]
 ## Read experiment data
 # path_to_experiment_file = "/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/experiment_data_MHCII.csv"
-path_to_experiment_file = "../data/MHCI/experiment_data_MHCI.csv"
+path_to_experiment_file = "data/MHCI/experiment_data_MHCI.csv"
 experiment_raw_df = pd.read_csv(path_to_experiment_file,skiprows=1)
 experiment_raw_df = experiment_raw_df[['Epitope ID',"Cell Type","Allele Name","Antigen Description","Qualitative Measure","Assay Group","Number of Subjects Tested","Number of Subjects Responded"]].dropna()
 experiment_raw_df.sort_values(by='Epitope ID', ascending=True)
 
 # Experiments used 
 # most_common_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
-#used_experiments = ['IFNg release']
-used_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
+used_experiments = ['IFNg release']
+# used_experiments = ['IFNg release', 'qualitative binding', 'cytotoxicity', 'activation']
 
 filter_lengths = [9,10]
 epitope_raw_df["epitope_length"] = epitope_raw_df["Description"].apply(lambda x: len(x.strip()))
@@ -52,16 +52,24 @@ for ID in epitope_IDS:
     number_of_HLA_alleles = len(set(experiment_raw_df[experiment_raw_df["Epitope ID"] == ID]["Allele Name"]))
 
     peptide = list(epitope_df[epitope_df["Epitope ID"] == ID]["Description"])[0]
+
     experiments_with_peptide = experiment_raw_df[experiment_raw_df["Epitope ID"] == ID]
     
-    
+
     for i,experiment in experiments_with_peptide.iterrows():
         if experiment["Antigen Description"] == peptide:
+            
             unique_identifier = peptide + "_" + experiment["Allele Name"]
 
             assay = experiment["Assay Group"]
             if assay not in used_experiments:
                 continue
+
+            if str(ID) == "75636":
+                print("Unique identifier", unique_identifier)
+                print(experiment)
+                print()
+
 
             tested_subjects = experiment["Number of Subjects Tested"]
             positive_subjects = experiment["Number of Subjects Responded"]
@@ -75,7 +83,9 @@ for ID in epitope_IDS:
             else:
                 final_dataset[unique_identifier]["tested subjects"].append(tested_subjects)
                 final_dataset[unique_identifier]["positive subjects"].append(positive_subjects)
-
+    if str(ID) == "75636":
+        print(final_dataset[unique_identifier])
+        sys.exit(1)
 
 
 
@@ -113,18 +123,10 @@ def hla_df_to_dic(hla):
         dic[col1] = col2
     return dic
 
-hla = pd.read_csv('../data/formatted_MHC_pseudo.dat', sep=" ")
+hla = pd.read_csv('data/formatted_MHC_pseudo.dat', sep=" ")
 hla_dic = hla_df_to_dic(hla)
 
 removed_idx = total_df[total_df.apply(lambda x: False if (x.HLA_allele) in hla_dic.keys() else True,axis=1)].index
 print("These rows were removed due to HLA missing from the MHC_psuedo.dat: {}".format(removed_idx))
 total_df = total_df[total_df.apply(lambda x: True if (x.HLA_allele) in hla_dic.keys() else False,axis=1)]
-total_df.to_csv("../data/filtered_data_IEDB_4_tested_len_9_10_full_HLA_Multi_assay.csv")
-
-
-#total_df.to_csv("../data/filtered_data_IEDB_4_tested_len_9_10_full_HLA_IFNg_assay.csv")
-
-# print(positive_df)
-# print(negative_df)
-
-# dataset_df.to_csv("/Users/christianpederjacobsen/Dropbox/Mac/Desktop/leg/peptide_immunogenicity/data/filtered_data_IEDB_4_tested_len_9_11_full_HLA.csv")
+# total_df.to_csv("../tmp/filtered_data_IEDB_4_tested_len_9_10_full_HLA_Multi_assay.csv")
