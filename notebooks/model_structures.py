@@ -573,140 +573,6 @@ class RNN_model_best(nn.Module):
         return torch.sigmoid(x)
 
 
-peptide_length = 10
-encoding_dimensions = 12
-HLA_length = 34
-input_channels = 1
-
-# define network
-class best_CNN(nn.Module):
-    def __init__(self):
-        super(best_CNN, self).__init__()
-        out_channels_conv1_hla = 8 
-        # CNN encoding - HLA
-        self.conv1_hla = Conv2d(in_channels=input_channels,
-                            out_channels=out_channels_conv1_hla,
-                            kernel_size=(30,encoding_dimension),
-                            stride=1,
-                            padding=0)
-        self.maxpool1_hla = nn.MaxPool2d(kernel_size=(15,1),
-                                            stride=(2,1))
-        
-        self.BatchNorm_conv1_hla = BatchNorm2d(out_channels_conv1_hla) # Output channels from the previous layer
-
-        out_channels_conv2_hla = 4
-        self.conv2_hla = Conv2d(in_channels=out_channels_conv1_hla,
-                            out_channels=out_channels_conv2_hla,
-                            kernel_size=(30,1),
-                            stride=1,
-                            padding=0)
-        self.maxpool2_hla = nn.MaxPool2d(kernel_size=(15,1),
-                                            stride=(2,1))
-
-        self.BatchNorm_conv2_hla = BatchNorm2d(out_channels_conv2_hla) # Output channels from the previous layer
-        
-
-        # CNN encoding - peptide
-        # RNN_encoding_dim = 10
-        # self.peptide_encoding = nn.LSTM(encoding_dimensions, RNN_encoding_dim, batch_first=True, num_layers = 1, bidirectional=False)
-        # out_channels_conv1_peptide = 8 
-        # self.conv1_peptide = Conv2d(in_channels=input_channels,
-        #                     out_channels=out_channels_conv1_hla,
-        #                     kernel_size=(1,encoding_dimension),
-        #                     stride=1,
-        #                     padding=0)
-        # self.BatchNorm_conv1_peptide = BatchNorm2d(out_channels_conv1_peptide) # Output channels from the previous layer
-        # self.maxpool1_hla = nn.MaxPool2d(kernel_size=(15,1),
-        #                                     stride=(2,1))
-
-
-        # Denselayer
-        in_dimensions_L_in = peptide_length*encoding_dimension + 240
-        out_dimension_L_in = int(in_dimensions_L_in/2)
-        self.drop_out = nn.Dropout(p=0.4)
-
-        self.L_in = Linear(in_features = in_dimensions_L_in, # 528 if binding_score None, else 529
-                            out_features= out_dimension_L_in)
-
-        self.batchnorm1 = nn.BatchNorm1d(out_dimension_L_in)
-
-        out_dimensions_L_2 = int(out_dimension_L_in/2)
-        self.L_2 = Linear(in_features =  out_dimension_L_in,
-                            out_features = 1)
-
-        # self.batchnorm2 = nn.BatchNorm1d(out_dimensions_L_2)
-
-        # out_dimensions_L_3 = int(out_dimensions_L_2/2)
-        # self.L_3 = Linear(in_features =  out_dimension_L_in + out_dimensions_L_2,
-        #                     out_features = 1)
-        
-        # self.batchnorm3 = nn.BatchNorm1d(out_dimensions_L_3)
-        # out_dimensions_L_4 = int(out_dimension_L_in/2)
-        
-        # self.L_4 = Linear(in_features =  out_dimensions_L_3,
-        #                     out_features = 1)
-
-        # self.drop_out2 = nn.Dropout(p=0.4)
-    
-    def forward(self, peptide, HLA, binding_score=None): # x.size() = [batch, channel, height, width]
-        # Encoding RNN
-        # context_embedded_peptide,attn_output_weights = self.peptide_attention(peptide,peptide,peptide)
-        # rnn_peptide, (hn_peptide, cn_peptide) = self.peptide_encoding(peptide)
-        # peptide = self.add_channel_dimension(peptide)
-        # peptide = self.conv1_peptide(peptide)
-        # peptide = self.BatchNorm_conv1_peptide(peptide)
-        # peptide = relu(peptide)
-
-        peptide = torch.flatten(peptide,start_dim=1)
-
-        # feature extraction HLA
-        HLA = self.add_channel_dimension(HLA)
-        HLA = self.conv1_hla(HLA)
-        HLA = self.BatchNorm_conv1_hla(HLA)
-        HLA = relu(HLA)
-        HLA = self.maxpool1_hla(HLA)
-
-        HLA = self.conv2_hla(HLA)
-        HLA = self.BatchNorm_conv2_hla(HLA)
-        HLA = relu(HLA)
-        HLA = self.maxpool2_hla(HLA)
-        HLA = torch.flatten(HLA,start_dim=1)
-
-        if binding_score is not None: 
-            combined_input = torch.cat((peptide, HLA, binding_score), 1)
-        else:
-            combined_input = torch.cat((peptide, HLA), 1)
-
-
-        L_1_act = self.L_in(combined_input)
-        L_1_act = self.batchnorm1(L_1_act)
-        L_1_act = self.drop_out(L_1_act)
-        L_1_act = relu(L_1_act)
-        
-        # l_2_input = torch.cat((L_1_act, combined_input), 1)
-        L_2_act = self.L_2(L_1_act)
-        # L_2_act = self.batchnorm2(L_2_act)
-        # L_2_act = self.drop_out(L_2_act)
-        # L_2_act = relu(L_2_act)
-        
-
-        # l_3_input = torch.cat((L_2_act, L_1_act), 1)
-        # l_3_act = self.L_3(l_3_input)
-        # L_3_act = relu(L_3_act)
-        # L_3_act = self.batchnorm3(L_3_act)
-        # L_3_act = self.drop_out(L_3_act)
-
-        # x = self.L_4(L_3_act)
-
-
-        return torch.sigmoid(L_2_act)
-
-    def add_channel_dimension(self,encoded_sequence):
-        return encoded_sequence.unsqueeze(1)
-    
-    def compute_conv_dim(dim_size,kernel_size,padding,stride):
-        return int((dim_size - kernel_size + 2 * padding) / stride + 1)
-
 
 peptide_length = 10
 encoding_dimensions = 12
@@ -861,16 +727,152 @@ class best_RNN(nn.Module):
 
 
 
+peptide_length = 10
+encoding_dimensions = 12
+HLA_length_CNN = 366
+input_channels = 1
+
+# define network
+class best_CNN(nn.Module):
+    def __init__(self):
+        super(best_CNN, self).__init__()
+        out_channels_conv1_hla = 8 
+        # CNN encoding - HLA
+        self.conv1_hla = Conv2d(in_channels=input_channels,
+                            out_channels=out_channels_conv1_hla,
+                            kernel_size=(30,encoding_dimension),
+                            stride=1,
+                            padding=0)
+        self.maxpool1_hla = nn.MaxPool2d(kernel_size=(15,1),
+                                            stride=(2,1))
+        
+        self.BatchNorm_conv1_hla = BatchNorm2d(out_channels_conv1_hla) # Output channels from the previous layer
+
+        out_channels_conv2_hla = 4
+        self.conv2_hla = Conv2d(in_channels=out_channels_conv1_hla,
+                            out_channels=out_channels_conv2_hla,
+                            kernel_size=(30,1),
+                            stride=1,
+                            padding=0)
+        self.maxpool2_hla = nn.MaxPool2d(kernel_size=(15,1),
+                                            stride=(2,1))
+
+        self.BatchNorm_conv2_hla = BatchNorm2d(out_channels_conv2_hla) # Output channels from the previous layer
+        
+
+        # CNN encoding - peptide
+        # RNN_encoding_dim = 10
+        # self.peptide_encoding = nn.LSTM(encoding_dimensions, RNN_encoding_dim, batch_first=True, num_layers = 1, bidirectional=False)
+        # out_channels_conv1_peptide = 8 
+        # self.conv1_peptide = Conv2d(in_channels=input_channels,
+        #                     out_channels=out_channels_conv1_hla,
+        #                     kernel_size=(1,encoding_dimension),
+        #                     stride=1,
+        #                     padding=0)
+        # self.BatchNorm_conv1_peptide = BatchNorm2d(out_channels_conv1_peptide) # Output channels from the previous layer
+        # self.maxpool1_hla = nn.MaxPool2d(kernel_size=(15,1),
+        #                                     stride=(2,1))
+
+
+        # Denselayer
+        in_dimensions_L_in = peptide_length*encoding_dimension + 240
+        out_dimension_L_in = int(in_dimensions_L_in/2)
+        self.drop_out = nn.Dropout(p=0.4)
+
+        self.L_in = Linear(in_features = in_dimensions_L_in, # 528 if binding_score None, else 529
+                            out_features= 1)
+
+        # self.batchnorm1 = nn.BatchNorm1d(out_dimension_L_in)
+
+        # out_dimensions_L_2 = int(out_dimension_L_in/2)
+        # self.L_2 = Linear(in_features =  out_dimension_L_in,
+        #                     out_features = 1)
+
+        # self.batchnorm2 = nn.BatchNorm1d(out_dimensions_L_2)
+
+        # out_dimensions_L_3 = int(out_dimensions_L_2/2)
+        # self.L_3 = Linear(in_features =  out_dimension_L_in + out_dimensions_L_2,
+        #                     out_features = 1)
+        
+        # self.batchnorm3 = nn.BatchNorm1d(out_dimensions_L_3)
+        # out_dimensions_L_4 = int(out_dimension_L_in/2)
+        
+        # self.L_4 = Linear(in_features =  out_dimensions_L_3,
+        #                     out_features = 1)
+
+        # self.drop_out2 = nn.Dropout(p=0.4)
+    
+    def forward(self, peptide, HLA, binding_score=None): # x.size() = [batch, channel, height, width]
+        # Encoding RNN
+        # context_embedded_peptide,attn_output_weights = self.peptide_attention(peptide,peptide,peptide)
+        # rnn_peptide, (hn_peptide, cn_peptide) = self.peptide_encoding(peptide)
+        # peptide = self.add_channel_dimension(peptide)
+        # peptide = self.conv1_peptide(peptide)
+        # peptide = self.BatchNorm_conv1_peptide(peptide)
+        # peptide = relu(peptide)
+
+        peptide = torch.flatten(peptide,start_dim=1)
+
+        # Feature extraction HLA
+        HLA = self.add_channel_dimension(HLA)
+        HLA = self.conv1_hla(HLA)
+        HLA = self.BatchNorm_conv1_hla(HLA)
+        HLA = relu(HLA)
+        HLA = self.maxpool1_hla(HLA)
+
+        HLA = self.conv2_hla(HLA)
+        HLA = self.BatchNorm_conv2_hla(HLA)
+        HLA = relu(HLA)
+        HLA = self.maxpool2_hla(HLA)
+
+        HLA = torch.flatten(HLA,start_dim=1)
+
+        if binding_score is not None: 
+            combined_input = torch.cat((peptide, HLA, binding_score), 1)
+        else:
+            combined_input = torch.cat((peptide, HLA), 1)
+
+
+        L_1_act = self.L_in(combined_input)
+        # L_1_act = self.batchnorm1(L_1_act)
+        # L_1_act = self.drop_out(L_1_act)
+        # L_1_act = relu(L_1_act)
+        
+        # l_2_input = torch.cat((L_1_act, combined_input), 1)
+        # L_2_act = self.L_2(L_1_act)
+        # L_2_act = self.batchnorm2(L_2_act)
+        # L_2_act = self.drop_out(L_2_act)
+        # L_2_act = relu(L_2_act)
+        
+
+        # l_3_input = torch.cat((L_2_act, L_1_act), 1)
+        # l_3_act = self.L_3(l_3_input)
+        # L_3_act = relu(L_3_act)
+        # L_3_act = self.batchnorm3(L_3_act)
+        # L_3_act = self.drop_out(L_3_act)
+
+        # x = self.L_4(L_3_act)
+
+
+        return torch.sigmoid(L_1_act)
+
+    def add_channel_dimension(self,encoded_sequence):
+        return encoded_sequence.unsqueeze(1)
+    
+    def compute_conv_dim(dim_size,kernel_size,padding,stride):
+        return int((dim_size - kernel_size + 2 * padding) / stride + 1)
+
+
 
 if __name__ == "__main__":
-    net = best_RNN()
+    net = best_CNN()
     print("Number of parameters in model:", get_n_params(net))
     # sys.exit(1)
     print(net)
 
     peptide_random = np.random.normal(0,1, (10, 10, 12)).astype('float32')
     peptide_random = Variable(torch.from_numpy(peptide_random))
-    HLA_random = np.random.normal(0,1, (10, 34, 12)).astype('float32')
+    HLA_random = np.random.normal(0,1, (10, 366, 12)).astype('float32')
     HLA_random = Variable(torch.from_numpy(HLA_random))
     binding_random = np.random.normal(0,1, (10, 1)).astype('float32')
     binding_random = Variable(torch.from_numpy(binding_random))
