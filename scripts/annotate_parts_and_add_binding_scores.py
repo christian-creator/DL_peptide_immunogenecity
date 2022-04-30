@@ -3,15 +3,17 @@ import pandas as pd
 import numpy as np
 import os
 import sys
-all_data = pd.read_csv("../data/ifng_test.csv",index_col=0)
-binding_scores = pd.read_csv("../tmp/binding_results_ifng_2.csv",index_col=0)
+# %%
+all_data = pd.read_csv("../data/ifng_test_balanced.csv",index_col=0)
+binding_scores = pd.read_csv("../tmp/binding_results_ifng_true.csv",index_col=0)
+
 # %%
 # add parts column with zeros all the way 
 n = all_data.shape[0]
 empty_column = np.zeros((n))
 all_data["parts"] = empty_column
 all_data["binding_score"] = empty_column
-path_to_parts = "../data/ifng_assay_parts_test"
+path_to_parts = "../data/ifng_true_parts"
 counter = 0 
 for file in os.listdir(path_to_parts):
     part = int(file[-1])
@@ -30,13 +32,11 @@ for file in os.listdir(path_to_parts):
             if row_all_data["peptide"] == peptide_partition and row_all_data["HLA_allele"] == hla_partition:
                 all_data.loc[j,"parts"] = int(part)
                 all_data.loc[j,"binding_score"] = binding_score
-                # print(all_data.loc[j])
-                # print(row_all_data)
-                # print(part)
+
 print(counter)
 
 # %%
 
 # %%
-all_data.to_csv("../tmp/ifng_test_w_parts_w_binding_scores.csv")
+all_data.to_csv("../data/ifng_ture_balanced_w_parts_w_binding_scores.csv")
 # %%

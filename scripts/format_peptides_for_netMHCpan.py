@@ -4,10 +4,10 @@ import numpy as np
 import os
 # %%
 # Reading the dataset
-data = pd.read_csv("../data/ifng_test_w_parts.csv")
+data = pd.read_csv("../data/ifng_test_balanced.csv")
 # %%
 # Creating a .txt file for each HLA allele with all pepties bound to that allele in the filtered dataset
-path_to_peptide_files = "../tmp/peptides_file_ifng_test"
+path_to_peptide_files = "../tmp/peptides_file_ifng_true"
 os.system(f"mkdir -p {path_to_peptide_files}")
 
 
