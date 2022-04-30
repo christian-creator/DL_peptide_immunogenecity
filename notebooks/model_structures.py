@@ -575,7 +575,7 @@ class RNN_model_best(nn.Module):
 
 peptide_length = 10
 encoding_dimensions = 12
-HLA_length_long = 366
+HLA_length = 34
 input_channels = 1
 
 # define network
@@ -707,15 +707,57 @@ class test_model(nn.Module):
     def compute_conv_dim(dim_size,kernel_size,padding,stride):
         return int((dim_size - kernel_size + 2 * padding) / stride + 1)
 
+
+peptide_length = 10
+encoding_dimensions = 12
+HLA_length = 34
+
+# define network
+class simple(nn.Module):
+    def __init__(self):
+        super(simple, self).__init__()
+
+        # Denselayer
+        in_dimensions_L_in = encoding_dimensions*HLA_length
+        out_dimension_L_in = int(in_dimensions_L_in/2)
+        self.drop_out = nn.Dropout(p=0.4)
+
+        self.L_in = Linear(in_features=in_dimensions_L_in, # 528 if binding_score None, else 529
+                            out_features= 1)
+
+
+        # self.drop_out2 = nn.Dropout(p=0.4)
+    
+    def forward(self, peptide, HLA, binding_score=None): # x.size() = [batch, channel, height, width]
+        # peptide = torch.flatten(peptide,start_dim=1)
+        HLA = torch.flatten(HLA,start_dim=1)
+
+        # if binding_score is not None: 
+        #     combined_input = torch.cat((peptide, HLA, binding_score), 1)
+        # else:
+        #     combined_input = torch.cat((peptide), 1)
+
+        # x = self.batchnorm_rnn(combined_input)
+        # x = self.drop_out(combined_input)
+        l1_output = self.L_in(HLA)
+        # l1_output = self.batchnorm1(l1_output)
+        # l1_output = self.drop_out(l1_output)
+        # l1_output = relu(l1_output)
+
+        return torch.sigmoid(l1_output)
+
+
+
+
 if __name__ == "__main__":
-    net = test_model()
+    net = simple()
     print("Number of parameters in model:", get_n_params(net))
     # sys.exit(1)
     print(net)
 
     peptide_random = np.random.normal(0,1, (10, 10, 12)).astype('float32')
     peptide_random = Variable(torch.from_numpy(peptide_random))
-    HLA_random = np.random.normal(0,1, (10, 366, 12)).astype('float32')
+    HLA_random = np.random.normal(0,1, (10, 34, 12)).astype('float32')
     HLA_random = Variable(torch.from_numpy(HLA_random))
     binding_random = np.random.normal(0,1, (10, 1)).astype('float32')
     binding_random = Variable(torch.from_numpy(binding_random))
