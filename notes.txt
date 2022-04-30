@@ -2,3 +2,16 @@
 - Peptides with weird immunogenecity scores:
 	FIPENQRTV
 	NYTPGPGIRF
+
+
+## Hyperparameter optimization
+
+## Results for FFNN
+Batch size = 80
+Learning rate = 0.001
+weight decay = 0.001 
+validation roc auc = 0.73
+validation pr auc = 0.696
+test roc auc = 0.725
+test pr auc = 0.707
+
