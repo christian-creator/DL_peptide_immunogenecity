@@ -738,38 +738,36 @@ class best_CNN(nn.Module):
         super(best_CNN, self).__init__()
         out_channels_conv1_hla = 8 
         # CNN encoding - HLA
-        self.conv1_hla = Conv2d(in_channels=input_channels,
-                            out_channels=out_channels_conv1_hla,
-                            kernel_size=(30,encoding_dimension),
-                            stride=1,
-                            padding=0)
-        self.maxpool1_hla = nn.MaxPool2d(kernel_size=(15,1),
-                                            stride=(2,1))
+        # self.conv1_hla = Conv2d(in_channels=input_channels,
+        #                     out_channels=out_channels_conv1_hla,
+        #                     kernel_size=(30,encoding_dimension),
+        #                     stride=1,
+        #                     padding=0)
+        # self.maxpool1_hla = nn.MaxPool2d(kernel_size=(15,1),
+        #                                     stride=(2,1))
         
-        self.BatchNorm_conv1_hla = BatchNorm2d(out_channels_conv1_hla) # Output channels from the previous layer
+        # self.BatchNorm_conv1_hla = BatchNorm2d(out_channels_conv1_hla) # Output channels from the previous layer
 
-        out_channels_conv2_hla = 4
-        self.conv2_hla = Conv2d(in_channels=out_channels_conv1_hla,
-                            out_channels=out_channels_conv2_hla,
-                            kernel_size=(30,1),
-                            stride=1,
-                            padding=0)
-        self.maxpool2_hla = nn.MaxPool2d(kernel_size=(15,1),
-                                            stride=(2,1))
+        # out_channels_conv2_hla = 4
+        # self.conv2_hla = Conv2d(in_channels=out_channels_conv1_hla,
+        #                     out_channels=out_channels_conv2_hla,
+        #                     kernel_size=(30,1),
+        #                     stride=1,
+        #                     padding=0)
+        # self.maxpool2_hla = nn.MaxPool2d(kernel_size=(15,1),
+        #                                     stride=(2,1))
 
-        self.BatchNorm_conv2_hla = BatchNorm2d(out_channels_conv2_hla) # Output channels from the previous layer
+        # self.BatchNorm_conv2_hla = BatchNorm2d(out_channels_conv2_hla) # Output channels from the previous layer
         
 
         # CNN encoding - peptide
-        # RNN_encoding_dim = 10
-        # self.peptide_encoding = nn.LSTM(encoding_dimensions, RNN_encoding_dim, batch_first=True, num_layers = 1, bidirectional=False)
-        # out_channels_conv1_peptide = 8 
-        # self.conv1_peptide = Conv2d(in_channels=input_channels,
-        #                     out_channels=out_channels_conv1_hla,
-        #                     kernel_size=(1,encoding_dimension),
-        #                     stride=1,
-        #                     padding=0)
-        # self.BatchNorm_conv1_peptide = BatchNorm2d(out_channels_conv1_peptide) # Output channels from the previous layer
+        out_channels_conv1_peptide = 8 
+        self.conv1_peptide = Conv2d(in_channels=input_channels,
+                            out_channels=out_channels_conv1_peptide,
+                            kernel_size=(2,encoding_dimension),
+                            stride=1,
+                            padding=0)
+        self.BatchNorm_conv1_peptide = BatchNorm2d(out_channels_conv1_peptide) # Output channels from the previous layer
         # self.maxpool1_hla = nn.MaxPool2d(kernel_size=(15,1),
         #                                     stride=(2,1))
 
@@ -816,12 +814,12 @@ class best_CNN(nn.Module):
         # Feature extraction HLA
         HLA = self.add_channel_dimension(HLA)
         HLA = self.conv1_hla(HLA)
-        HLA = self.BatchNorm_conv1_hla(HLA)
+        # HLA = self.BatchNorm_conv1_hla(HLA)
         HLA = relu(HLA)
         HLA = self.maxpool1_hla(HLA)
 
         HLA = self.conv2_hla(HLA)
-        HLA = self.BatchNorm_conv2_hla(HLA)
+        # HLA = self.BatchNorm_conv2_hla(HLA)
         HLA = relu(HLA)
         HLA = self.maxpool2_hla(HLA)
 
