@@ -3,7 +3,7 @@ import os
 import sys
 import pandas as pd
 # %%
-path_to_netmhcpan_results = "../data/netMHCpan_results_ifng_2"
+path_to_netmhcpan_results = "../data/netMHCpan_results_ifng_true"
 results = []
 for file in os.listdir(path_to_netmhcpan_results):
     path_to_file = os.path.join(path_to_netmhcpan_results,file)
@@ -21,6 +21,6 @@ for file in os.listdir(path_to_netmhcpan_results):
                     results.append([peptide,HLA,binding_score])
 # %%
 binding_results = pd.DataFrame.from_records(results,columns=["peptide","HLA","binding_score"])
-binding_results.to_csv("../tmp/binding_results_ifng_2.csv")
+binding_results.to_csv("../tmp/binding_results_ifng_true.csv")
 
 # %%

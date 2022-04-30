@@ -65,28 +65,19 @@ for ID in epitope_IDS:
             if assay not in used_experiments:
                 continue
 
-            if str(ID) == "75636":
-                print("Unique identifier", unique_identifier)
-                print(experiment)
-                print()
-
 
             tested_subjects = experiment["Number of Subjects Tested"]
             positive_subjects = experiment["Number of Subjects Responded"]
 
             if unique_identifier not in final_dataset.keys():
                 final_dataset[unique_identifier] = dict()
-
-            if assay not in final_dataset[unique_identifier].keys():
                 final_dataset[unique_identifier]["tested subjects"] = [tested_subjects]
                 final_dataset[unique_identifier]["positive subjects"] = [positive_subjects]
+                if str(ID) == "75636":
+                    print(tested_subjects,positive_subjects)
             else:
                 final_dataset[unique_identifier]["tested subjects"].append(tested_subjects)
                 final_dataset[unique_identifier]["positive subjects"].append(positive_subjects)
-    if str(ID) == "75636":
-        print(final_dataset[unique_identifier])
-        sys.exit(1)
-
 
 
 dataset = []
@@ -97,12 +88,10 @@ for peptide_HLA in final_dataset.keys():
     immunogenicity = calculate_immunogenecity_score(tested_subjects,positive_subjects)    
     dataset.append([peptide,HLA_allele,immunogenicity,tested_subjects,positive_subjects])
 
-
 columns = ["peptide","HLA_allele","immunogenicity","tested_subjects","positive_subjects"]
 dataset_df = pd.DataFrame.from_records(dataset,columns=columns)
 alleles = ["*" in x for x in dataset_df["HLA_allele"]]
 dataset_df = dataset_df[alleles]
-
 
 positive_df = dataset_df[dataset_df["positive_subjects"] > 0]
 negative_df = dataset_df[dataset_df["positive_subjects"] == 0]
@@ -129,4 +118,5 @@ hla_dic = hla_df_to_dic(hla)
 removed_idx = total_df[total_df.apply(lambda x: False if (x.HLA_allele) in hla_dic.keys() else True,axis=1)].index
 print("These rows were removed due to HLA missing from the MHC_psuedo.dat: {}".format(removed_idx))
 total_df = total_df[total_df.apply(lambda x: True if (x.HLA_allele) in hla_dic.keys() else False,axis=1)]
-# total_df.to_csv("../tmp/filtered_data_IEDB_4_tested_len_9_10_full_HLA_Multi_assay.csv")
+print(total_df)
+total_df.to_csv("data/ifng_true.csv")
