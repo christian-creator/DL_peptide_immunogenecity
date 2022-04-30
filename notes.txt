@@ -15,3 +15,10 @@ validation pr auc = 0.696
 test roc auc = 0.725
 test pr auc = 0.707
 
+## Hyperparameter optimization
+The best round was: 60
+The batch size there was 70
+The learning rate was 0.0001
+The weight decay was 0.0001
+The validation roc auc was 0.754
+The validation pr auc was 0.748 
