@@ -895,30 +895,7 @@ input_channels = 1
 class combine_models(nn.Module):
     def __init__(self):
         super(combine_models, self).__init__()
-        out_channels_conv1_hla = 8
-        # CNN encoding - HLA
-        # self.conv1_hla = Conv2d(in_channels=input_channels,
-        #                     out_channels=out_channels_conv1_hla,
-        #                     kernel_size=(30,3),
-        #                     stride=(5,1),
-        #                     padding=0)
-        # self.maxpool1_hla = nn.MaxPool2d(kernel_size=(2,2),
-        #                                     stride=(2,2))
         
-        # self.BatchNorm_conv1_hla = BatchNorm2d(out_channels_conv1_hla) # Output channels from the previous layer
-
-        # out_channels_conv2_hla = 4
-        # self.conv2_hla = Conv2d(in_channels=out_channels_conv1_hla,
-        #                     out_channels=out_channels_conv2_hla,
-        #                     kernel_size=(30,1),
-        #                     stride=1,
-        #                     padding=0)
-        # self.maxpool2_hla = nn.MaxPool2d(kernel_size=(15,1),
-        #                                     stride=(2,1))
-
-        # self.BatchNorm_conv2_hla = BatchNorm2d(out_channels_conv2_hla) # Output channels from the previous layer
-        
-
         # CNN encoding - peptide
         out_channels_conv1_peptide = 16
         self.conv1_peptide = Conv2d(in_channels=input_channels,
@@ -938,18 +915,6 @@ class combine_models(nn.Module):
                             padding=0)
         
         self.BatchNorm_conv2_peptide = BatchNorm2d(out_channels_conv2_peptide) # Output channels from the previous layer
-        # self.maxpool2_peptide = nn.AdaptiveAvgPool2d((8,10))
-        # out_channels_conv3_peptide = 32
-        # self.conv3_peptide = Conv2d(in_channels=out_channels_conv2_peptide,
-        #                     out_channels=out_channels_conv3_peptide,
-        #                     kernel_size=(2,2),
-        #                     stride=1,
-        #                     padding=0)
-        
-        # self.BatchNorm_conv3_peptide = BatchNorm2d(out_channels_conv3_peptide) # Output channels from the previous layer
-        # self.maxpool2_peptide = nn.MaxPool2d(kernel_size=(2,2),
-        #                                     stride=1)
-
 
         # RNN sequential encoding
         RNN_encoding_dim = 200

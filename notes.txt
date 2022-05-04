@@ -16,12 +16,16 @@ test roc auc = 0.725
 test pr auc = 0.707
 
 ## Results for RNN
-The best round was: 60
-The batch size there was 70
+The best round was: 0
+The batch size there was 40
 The learning rate was 0.0001
-The weight decay was 0.0001
-The validation roc auc was 0.754
-The validation pr auc was 0.748 
+The weight decay was 0.001
+The dropout rate was 0.4
+The RNN-ecnoding was 10
+The validation roc auc was 0.75
+The validation pr auc was 0.745
+Test ROC: 0.762
+Test AuPR: 0.777
 
 ## Results for DeepImmuno
 The best round was: 71
