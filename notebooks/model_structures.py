@@ -659,14 +659,14 @@ class best_FFN(nn.Module):
 
         return torch.sigmoid(L_3_act)
 
-peptide_length_RNN = 9
+peptide_length_RNN = 10
 encoding_dimensions_RNN = 12
 HLA_length_best_ffn = 34
 
 # define network
 class best_RNN(nn.Module):
 
-    def __init__(self,drop_out_rate,RNN_encodings):
+    def __init__(self,dropout_rate=0.4,RNN_encodings=10):
         super(best_RNN, self).__init__()
         RNN_encoding_dim = RNN_encodings
         
@@ -678,7 +678,7 @@ class best_RNN(nn.Module):
         in_dimensions_L_in = peptide_length_RNN*RNN_encoding_dim*2 + HLA_length_best_ffn*RNN_encoding_dim*2
         out_dimension_L_in = int(in_dimensions_L_in/2)
         
-        self.drop_out = nn.Dropout(p=0.4)
+        self.drop_out = nn.Dropout(p=dropout_rate)
         self.L_in = Linear(in_features = in_dimensions_L_in, # 528 if binding_score None, else 529
                             out_features= out_dimension_L_in)
 
@@ -1086,8 +1086,6 @@ class MultiheadAttention(nn.Module):
         self.num_heads = num_heads
         self.head_dim = embed_dim // num_heads
 
-        # Stack all weight matrices 1...h together for efficiency
-        # Note that in many implementations you see "bias=False" which is optional
         self.qkv_proj = nn.Linear(input_dim, 3*embed_dim)
         self.o_proj = nn.Linear(embed_dim, embed_dim)
 
@@ -1119,8 +1117,6 @@ class MultiheadAttention(nn.Module):
             return o, attention
         else:
             return o
-
-
 
 
 peptide_length_combined = 10
