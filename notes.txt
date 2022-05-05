@@ -1,9 +1,4 @@
 # Notes
-- Peptides with weird immunogenecity scores:
-	FIPENQRTV
-	NYTPGPGIRF
-
-
 ## Hyperparameter optimization
 
 ## Results for FFNN
@@ -14,6 +9,7 @@ validation roc auc = 0.73
 validation pr auc = 0.696
 test roc auc = 0.725
 test pr auc = 0.707
+The dropout rate was 0.4
 
 ## Results for RNN
 The best round was: 0
@@ -27,6 +23,7 @@ The validation pr auc was 0.745
 Test ROC: 0.762
 Test AuPR: 0.777
 
+
 ## Results for DeepImmuno
 The best round was: 71
 The batch size there was 70
@@ -36,3 +33,28 @@ The validation roc auc was 0.731
 The validation pr auc was 0.719
 test roc auc = 0.712
 test pr auc = 0.716
+
+## Results for Best CNN:
+The best round was: 
+The batch size there was 80
+The learning rate was 0.0001
+The weight decay was 1e-05
+The validation roc auc was 0.715
+The validation pr auc was 0.678
+test roc auc = 0.745
+test pr auc = 0.758
+
+## Results for Combined model:
+The batch size there was 80
+The learning rate was 0.01
+The weight decay was 0.0001
+The dropout rate was 0.4
+The RNN-ecnoding was 26
+The validation roc auc was 0.753
+The validation pr auc was 0.772
+test roc auc = 0.722
+test pr auc = 0.75
+
+## Results Allele specific
+test AUC = 0.789
+test auPR = 0.789

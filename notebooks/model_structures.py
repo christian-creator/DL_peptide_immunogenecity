@@ -603,8 +603,8 @@ class simple(nn.Module):
         return torch.sigmoid(l1_output)
 
 
-peptide_length = 10
-encoding_dimensions = 12
+peptide_length_FFN = 10
+encoding_dimensions_FFN = 56
 HLA_length_best_ffn = 34
 input_channels = 1
 
@@ -613,7 +613,7 @@ class best_FFN(nn.Module):
     def __init__(self):
         super(best_FFN, self).__init__()
         # Denselayer
-        in_dimensions_L_in = peptide_length*encoding_dimension + HLA_length_best_ffn*encoding_dimension
+        in_dimensions_L_in = peptide_length_FFN*encoding_dimensions_FFN + HLA_length_best_ffn*encoding_dimensions_FFN
         out_dimension_L_in = int(in_dimensions_L_in/2)
         self.drop_out = nn.Dropout(p=0.4)
 
@@ -1167,13 +1167,13 @@ class test_model(nn.Module):
 
 
 if __name__ == "__main__":
-    net = best_RNN(0.4,10)
+    net = best_FFN()
     print("Number of parameters in model:", get_n_params(net))
     # sys.exit(1)
     print(net)
-    peptide_random = np.random.normal(0,1, (10, 10, 12)).astype('float32')
+    peptide_random = np.random.normal(0,1, (10, 10, 56)).astype('float32')
     peptide_random = Variable(torch.from_numpy(peptide_random))
-    HLA_random = np.random.normal(0,1, (10, 34, 12)).astype('float32')
+    HLA_random = np.random.normal(0,1, (10, 34, 56)).astype('float32')
     HLA_random = Variable(torch.from_numpy(HLA_random))
     binding_random = np.random.normal(0,1, (10, 1)).astype('float32')
     binding_random = Variable(torch.from_numpy(binding_random))
