@@ -325,7 +325,7 @@ class ConVbig(nn.Module):
 
 
 peptide_length = 10
-encoding_dimensions = 12 # 
+encoding_dimensions = 12
 HLA_length = 34
 
 # define network
@@ -659,8 +659,8 @@ class best_FFN(nn.Module):
 
         return torch.sigmoid(L_3_act)
 
-peptide_length_RNN = 9 #10 for pan specific model, 9 for allele specific 
-encoding_dimensions_RNN = 12 # change, when changing encodings. For aaindex = 12, onehot = 21, blosum = 24, all combined = 56
+peptide_length_RNN = 9
+encoding_dimensions_RNN = 12
 HLA_length_best_ffn = 34
 
 # define network
