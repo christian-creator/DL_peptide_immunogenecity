@@ -325,7 +325,7 @@ class ConVbig(nn.Module):
 
 
 peptide_length = 10
-encoding_dimensions = 12
+encoding_dimensions = 12 # 
 HLA_length = 34
 
 # define network
