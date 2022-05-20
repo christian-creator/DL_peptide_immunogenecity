@@ -725,9 +725,7 @@ class best_RNN(nn.Module):
 
 
 
-peptide_length = 10
-encoding_dimensions = 12
-HLA_length_CNN = 366
+
 input_channels = 1
 
 # define network
@@ -736,15 +734,15 @@ class best_CNN(nn.Module):
         super(best_CNN, self).__init__()
         out_channels_conv1_hla = 8
         # CNN encoding - HLA
-        self.conv1_hla = Conv2d(in_channels=input_channels,
-                            out_channels=out_channels_conv1_hla,
-                            kernel_size=(30,3),
-                            stride=(5,1),
-                            padding=0)
-        self.maxpool1_hla = nn.MaxPool2d(kernel_size=(2,2),
-                                            stride=(2,2))
+        # self.conv1_hla = Conv2d(in_channels=input_channels,
+        #                     out_channels=out_channels_conv1_hla,
+        #                     kernel_size=(5,3),
+        #                     stride=(5,1),
+        #                     padding=0)
+        # self.maxpool1_hla = nn.MaxPool2d(kernel_size=(2,2),
+        #                                     stride=(2,2))
         
-        self.BatchNorm_conv1_hla = BatchNorm2d(out_channels_conv1_hla) # Output channels from the previous layer
+        # self.BatchNorm_conv1_hla = BatchNorm2d(out_channels_conv1_hla) # Output channels from the previous layer
 
         # out_channels_conv2_hla = 4
         # self.conv2_hla = Conv2d(in_channels=out_channels_conv1_hla,
@@ -777,7 +775,7 @@ class best_CNN(nn.Module):
                             padding=0)
         
         self.BatchNorm_conv2_peptide = BatchNorm2d(out_channels_conv2_peptide) # Output channels from the previous layer
-        self.maxpool2_peptide = nn.AdaptiveAvgPool2d((8,10))
+        # self.maxpool2_peptide = nn.AdaptiveAvgPool2d((8,10))
         # out_channels_conv3_peptide = 32
         # self.conv3_peptide = Conv2d(in_channels=out_channels_conv2_peptide,
         #                     out_channels=out_channels_conv3_peptide,
@@ -792,7 +790,7 @@ class best_CNN(nn.Module):
 
 
         # Denselayer
-        in_dimensions_L_in = 3840 + 408
+        in_dimensions_L_in = 17920 + 1904
         out_dimension_L_in = int(in_dimensions_L_in/20)
         self.drop_out = nn.Dropout(p=0.4)
 
@@ -833,10 +831,8 @@ class best_CNN(nn.Module):
         # peptide = self.BatchNorm_conv3_peptide(peptide)
         # peptide = relu(peptide)
         batch,channels,height,width = peptide.shape
-        print(peptide.shape)
-        peptide.view()
-        sys.exit(1)
         peptide = torch.flatten(peptide,start_dim=1)
+        
 
         # Feature extraction HLA
         # HLA = self.add_channel_dimension(HLA)
@@ -852,6 +848,10 @@ class best_CNN(nn.Module):
 
 
         HLA = torch.flatten(HLA,start_dim=1)
+        # print(peptide.shape)
+        # print(HLA.shape)
+        # sys.exit(1)
+
 
         if binding_score is not None: 
             combined_input = torch.cat((peptide, HLA, binding_score), 1)
@@ -1167,13 +1167,13 @@ class test_model(nn.Module):
 
 
 if __name__ == "__main__":
-    net = best_FFN()
+    net = best_RNN()
     print("Number of parameters in model:", get_n_params(net))
     # sys.exit(1)
     print(net)
-    peptide_random = np.random.normal(0,1, (10, 10, 56)).astype('float32')
+    peptide_random = np.random.normal(0,1, (10, 10, 12)).astype('float32')
     peptide_random = Variable(torch.from_numpy(peptide_random))
-    HLA_random = np.random.normal(0,1, (10, 34, 56)).astype('float32')
+    HLA_random = np.random.normal(0,1, (10, 34, 12)).astype('float32')
     HLA_random = Variable(torch.from_numpy(HLA_random))
     binding_random = np.random.normal(0,1, (10, 1)).astype('float32')
     binding_random = Variable(torch.from_numpy(binding_random))

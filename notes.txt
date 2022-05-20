@@ -23,7 +23,6 @@ The validation pr auc was 0.745
 Test ROC: 0.762
 Test AuPR: 0.777
 
-
 ## Results for DeepImmuno
 The best round was: 71
 The batch size there was 70
@@ -41,8 +40,8 @@ The learning rate was 0.0001
 The weight decay was 1e-05
 The validation roc auc was 0.715
 The validation pr auc was 0.678
-test roc auc = 0.745
-test pr auc = 0.758
+test roc auc = 0.754
+test pr auc = 0.769
 
 ## Results for Combined model:
 The batch size there was 80
@@ -58,3 +57,10 @@ test pr auc = 0.75
 ## Results Allele specific
 test AUC = 0.789
 test auPR = 0.789
+
+## SemiSup
+0.828, 0.828
+
+
+## HLA specific model on the testing set: 
+## Pan-specific model on the HLA teseting set: 0.757, 0.828
