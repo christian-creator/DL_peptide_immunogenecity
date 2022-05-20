@@ -659,7 +659,7 @@ class best_FFN(nn.Module):
 
         return torch.sigmoid(L_3_act)
 
-peptide_length_RNN = 10
+peptide_length_RNN = 9
 encoding_dimensions_RNN = 12
 HLA_length_best_ffn = 34
 
