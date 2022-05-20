@@ -13,6 +13,12 @@ This project explored different deep learning architectures (FFNN, CNN and RNN) 
 
 </center>
 
+<center>
+
+![your image caption](Tcell_activation.png)
+
+</center>
+
 
 ### The folders
 
