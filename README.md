@@ -6,7 +6,11 @@ This project was done in collaboration with DTU compute in the spring of 2022.
 
 This project explored different deep learning architectures (FFNN, CNN and RNN) to predict the immunogenicity of peptide:MHCI pairs in a pan-specific manner. Such a tool would be highly valuable in the development of new protein therapeutics as a cheap and quick alternative to current low throughput in vitro assays. Out of the models tested, it was found that an RNN architecture had the highest performance on the testing set with an AUC = 0.778 and auPR = 0.790. This model used two separate bidirectional LSTM encoding layers, which slightly outperformed the next best CNN architecture. Then through an occlusion sensitivity analysis, it was found that position 0 was the most important for the prediction of immunogenicity, which does not align with previous observations. This observation suggests a bias in the dataset resulting in the models not generalizing well outside the used dataset. Thus, the performances reported in this project may not be replicable on new data. Lastly, a noisy student setup was applied to the RNN architecture to attempt increasing the available pool of data by labelling previously unlabeled peptide:MHCI pairs. The results from this setup suggested that the model was able to increase the available dataset with unlabeled data. 
 
+<center>
+
 ![Illustration of Tcell activation via MHCI and TCR](Tcell_activation.png)
+
+</center>
 
 ### The folders
 
