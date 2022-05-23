@@ -40,8 +40,8 @@ The learning rate was 0.0001
 The weight decay was 1e-05
 The validation roc auc was 0.715
 The validation pr auc was 0.678
-test roc auc = 0.754
-test pr auc = 0.769
+test roc auc = 0.761
+test pr auc = 0.782
 
 ## Results for Combined model:
 The batch size there was 80
