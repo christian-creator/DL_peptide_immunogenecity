@@ -63,8 +63,8 @@ path_to_experiment_file = "../data/MHCI_binding/mhc_ligand_table_export_16475333
 experiment_raw_df = pd.read_csv(path_to_experiment_file,skiprows=1,low_memory=False)
 experiment_raw_df = experiment_raw_df[['Epitope ID',"Allele Name","Qualitative Measure","Assay Group","Description"]]
 experiment_raw_df.sort_values(by='Epitope ID', ascending=True)
-# plot_barplot(experiment_raw_df["Assay Group"],"Assay group")
-# plot_barplot(experiment_raw_df["Qualitative Measure"],"Qualitative Measure")
+plot_barplot(experiment_raw_df["Assay Group"],"Assay group")
+plot_barplot(experiment_raw_df["Qualitative Measure"],"Qualitative Measure")
 # experiment_raw_df.isnull().sum().sort_values(ascending = False)
 
 # %%
@@ -140,7 +140,7 @@ for i,unsupervised_row in tqdm(unsupervised_df.iterrows()):
 unsupervised_df = unsupervised_df.drop(unsupervised_df.index[black_list_indexes])
 not_blacklisted = [x for x in unsupervised_df.index if x not in black_list_indexes]
 unsupervised_df_not_bl = unsupervised_df.loc[not_blacklisted,:]
-unsupervised_df_not_bl.to_csv("../data/semi_supervised_data_w_binding_no_overlap.csv")
+# unsupervised_df_not_bl.to_csv("../data/semi_supervised_data_w_binding_no_overlap.csv")
 
 # %%
 # %%
