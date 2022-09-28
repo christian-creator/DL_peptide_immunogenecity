@@ -1,0 +1,3 @@
+Ved at kigge på de peptider som er immunogene/ikke-immunogene for nogen af MHC'erne... Dem som er immunogene kan måske resutlere i aktivering hvis peptiderne også er fundet i andre i virusser.
+Under min bachelor fik jeg at vide at dette ikke rigtig gav mening, men kan jeg se en forsekl her? 
+PCA ved encoding af peptiderne for en MHC-allel
